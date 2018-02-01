@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Funfix.iml" filepath="$PROJECT_DIR$/.idea/Funfix.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dummy_sass_only.iml" filepath="$PROJECT_DIR$/.idea/modules/dummy_sass_only.iml" />
     </modules>
   </component>
 </project>

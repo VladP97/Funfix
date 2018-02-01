@@ -173,13 +173,14 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap
+  bootstrap (~> 4.0.0)
   byebug
   coffee-rails (~> 4.1.0)
   devise
   jbuilder (~> 2.0)
   jquery-rails
   mysql2
+  popper_js
   rails (= 4.2.9)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

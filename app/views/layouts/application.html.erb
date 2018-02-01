@@ -2,20 +2,35 @@
 <html>
 <head>
   <title>Funfix</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-<% if user_signed_in? %>
-    <span>Здравствуйте, <%= current_user.email %></span>
-    <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %>
-<% else %>
-    <%= link_to 'Войти', new_user_session_path %> или <%= link_to 'Зарегистрироваться', new_user_registration_path %>
-<% end %>
-<%= yield %>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <span>Здравствуйте, <%= current_user.email %></span>
+            <%= link_to 'Выйти', destroy_user_session_path, :method => :delete, :class => "nav-link" %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to 'Войти', new_user_session_path, :class => "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Зарегистрироваться', new_user_registration_path, :class => "nav-link" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+
+  <%= yield %>
 
 </body>
 </html>

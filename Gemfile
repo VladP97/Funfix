@@ -47,4 +47,5 @@ end
 
 gem 'mysql2'
 gem 'devise'
-gem 'bootstrap'
+gem 'bootstrap', '~> 4.0.0'
+gem 'popper_js'
