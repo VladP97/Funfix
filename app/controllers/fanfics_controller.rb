@@ -6,7 +6,7 @@ class FanficsController < PersonsController
 
   def create
     new_fanfic_params = params[:fanfic]
-    p new_fanfic_params.merge!(user_id: params[:person_id].to_s)
+    new_fanfic_params.merge!(user_id: params[:person_id].to_s)
     Fanfic.create(
         title: new_fanfic_params[:title], description: new_fanfic_params[:description],
         image: new_fanfic_params[:image], genre: new_fanfic_params[:genre],

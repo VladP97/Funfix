@@ -1,1 +1,29 @@
 <%= link_to "Create new fanfic", new_person_fanfic_path(current_user.id) %>
+
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Image</th>
+    <th scope="col">Title</th>
+    <th scope="col">Genre</th>
+    <th scope="col">Description</th>
+  </tr>
+  </thead>
+  <tbody>
+    <% @fanfics.each_with_index do |fanfic, index| %>
+    <tr data-href= "<%= person_fanfic_chapters_path(current_user.id, fanfic.id) %>">
+      <th scope="row"><%= index.to_i + 1 %></th>
+      <td class="table-image"><img src="<%= fanfic.image %>" alt="" style="width: 100%" ></td>
+      <td><%= fanfic.title %></td>
+      <td><%= fanfic.genre %></td>
+      <td><%= fanfic.description %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<script>
+    $(document).on("click", "tbody > tr", function() {
+        window.location = "http://localhost:3000" + $(this).data("href");
+    });
+</script>
