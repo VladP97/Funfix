@@ -1,2 +1,3 @@
-class ConfirmationsController
+class ConfirmationsController < ActionController
+
 end

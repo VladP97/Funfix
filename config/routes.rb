@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :person
+  resources :persons do
+    resources :fanfics
+  end
 
   root to: "persons#index"
 end
