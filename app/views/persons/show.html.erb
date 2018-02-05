@@ -12,7 +12,7 @@
   </thead>
   <tbody>
     <% @fanfics.each_with_index do |fanfic, index| %>
-    <tr data-href= "<%= person_fanfic_chapters_path(current_user.id, fanfic.id) %>">
+    <tr data-href= "<%= person_fanfic_chapters_path(current_user.id, fanfic.id) %>" style="cursor: pointer;">
       <th scope="row"><%= index.to_i + 1 %></th>
       <td class="table-image"><img src="<%= fanfic.image %>" alt="" style="width: 100%" ></td>
       <td><%= fanfic.title %></td>

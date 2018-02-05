@@ -6,5 +6,7 @@ Rails.application.routes.draw do
     end
   end
 
+  # mount Markitup::Rails::Engine, at: "markitup", as: "markitup"
+
   root to: "persons#index"
 end

@@ -1,0 +1,8 @@
+<%= link_to "Create new chapter", new_person_fanfic_chapter_path(current_user.id, fanfic.id) %>
+
+<% @chapters.each do |chapter| %>
+  <div>
+    <img src="<%= chapter.image %>" alt="">
+    <h2><%= chapter.title %></h2>
+  </div>
+<% end %>

@@ -49,3 +49,11 @@ gem 'mysql2'
 gem 'devise'
 gem 'bootstrap', '~> 4.0.0'
 gem 'popper_js'
+gem 'redcarpet'
+gem 'markitup-rails'
+gem 'font-awesome-rails', '~> 4.7.0'
+gem 'cloudinary'
+gem 'carrierwave'
+gem 'dropzonejs-rails'
+
+# dhpelms3i

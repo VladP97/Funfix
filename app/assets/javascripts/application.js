@@ -16,4 +16,7 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require bootstrap-sprockets
+//= require markitup
+//= require markitup/sets/xbbcode/set
+//= require dropzone
 //= require_tree .

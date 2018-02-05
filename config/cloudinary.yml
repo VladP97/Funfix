@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dhpelms3i
+  api_key: '665566686966281'
+  api_secret: UpZqn6GF0mojMSA76dLKw9sEx4A
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: dhpelms3i
+  api_key: '665566686966281'
+  api_secret: UpZqn6GF0mojMSA76dLKw9sEx4A
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: dhpelms3i
+  api_key: '665566686966281'
+  api_secret: UpZqn6GF0mojMSA76dLKw9sEx4A
+  enhance_image_tag: true
+  static_image_support: false

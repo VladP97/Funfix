@@ -1,20 +1,15 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
-
- */
 @import "bootstrap";
+@import "font-awesome";
+@import "markitup/skins/markitup/style";
+@import "markitup/sets/xbbcode/style";
+@import "dropzone/dropzone";
 
 .new_fanfic {
+  width: 40%;
+  margin: auto;
+}
+
+.new_chapter {
   width: 40%;
   margin: auto;
 }
@@ -27,3 +22,68 @@
 .table-image {
   width: 20%;
 }
+
+.chapters {
+  width: 80%;
+  margin: 2% auto;
+
+  div {
+    display: inline-block;
+
+    div {
+      display: -webkit-box;
+      -webkit-line-clamp: 6;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  img {
+    width: 50%;
+    height: 100%;
+  }
+}
+
+.drop-zone {
+  border: 3px dashed #3a4659;
+  width: 100%;
+  height: 200px;
+  display: inline-block;
+  margin-bottom: 3%;
+  font-size: 24pt;
+  text-align: center;
+  color: #828282;
+  line-height: 5;
+}
+
+.fileContainer {
+  border: 3px dashed #7a95bf;
+  color: #7a95bf;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  line-height: 3;
+  font-size: 24pt;
+}
+
+.fileContainer [type=file] {
+  cursor: inherit;
+  display: block;
+  font-size: 999px;
+  filter: alpha(opacity=0);
+  min-height: 100%;
+  min-width: 100%;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  text-align: right;
+  top: 0;
+}
+//
+//#dropzone-area {
+//  width: 100px;
+//  height: 100px;
+//}
