@@ -9,7 +9,8 @@ class FanficsController < PersonsController
     new_fanfic_params.merge!(user_id: params[:person_id].to_s)
     Fanfic.create(
         title: new_fanfic_params[:title], description: new_fanfic_params[:description],
-        image: new_fanfic_params[:image], genre: new_fanfic_params[:genre],
+        image: 'http://res.cloudinary.com/dhpelms3i/image/upload/v1517841525/' + new_fanfic_params[:image],
+        genre: new_fanfic_params[:genre],
         user_id: new_fanfic_params[:user_id]).save
     redirect_to person_path(current_user.id)
   end

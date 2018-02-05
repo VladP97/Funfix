@@ -1,3 +1,6 @@
+<%= javascript_include_tag "jquery.ui.widget", "jquery.iframe-transport",
+                           "jquery.fileupload", "jquery.cloudinary" %>
+
 <h1 class="fanfic-header">Create new fanfic</h1>
 
 <%= form_for @fanfic, url: {action: "create"} do |f| %>
@@ -17,10 +20,40 @@
     <%= f.text_area :description, class: "form-control"%>
   </div>
 
-  <div class="form-group">
-    <%= f.label :image_url %>
-    <%= f.text_field :image, class: "form-control"%>
+  <div id="dropzone-area" class="dropzone">
+
+  </div>
+
+  <div class="form-group" style="display: none">
+    <%= f.text_field :image, class: "form-control image"%>
   </div>
 
   <%= f.submit "Create", class: "btn btn-primary" %>
 <% end %>
+
+<script>
+    $("textarea").markItUp(markdownSettings);
+
+    $(function() {
+        if($.fn.cloudinary_fileupload !== undefined) {
+            $("input.cloudinary-fileupload[type=file]").cloudinary_fileupload();
+        }
+    });
+
+    $(document).ready(function () {
+        var myDropzone = new Dropzone(document.getElementById('dropzone-area'), {
+            uploadMultiple: false,
+            acceptedFiles:'.jpg,.png,.jpeg,.gif',
+            parallelUploads: 6,
+            url: 'https://api.cloudinary.com/v1_1/dhpelms3i/auto/upload'
+        });
+        myDropzone.on('sending', function (file, xhr, formData) {
+            formData.append('api_key', 665566686966281);
+            formData.append('timestamp', Date.now() / 1000 | 0);
+            formData.append('upload_preset', 'x9mghqma');
+        });
+        myDropzone.on('success', function (file, response) {
+            $('.image').attr('value', response.public_id);
+        });
+    });
+</script>
