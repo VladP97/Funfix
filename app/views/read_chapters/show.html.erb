@@ -1,0 +1,8 @@
+<div class="read-chapter jumbotron row">
+  <img class="" src="<%= @chapter.image %>" alt="">
+  <div class="">
+    <h2><%= @chapter.title %></h2>
+    <hr>
+    <div> <%= markdown(@chapter.text) %></div>
+  </div>
+</div>

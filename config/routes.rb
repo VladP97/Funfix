@@ -6,7 +6,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :read_fanfics
+  resources :read_fanfics do
+    resources :read_chapters
+  end
 
   root to: "read_fanfics#index"
 end
