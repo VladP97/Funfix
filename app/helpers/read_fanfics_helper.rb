@@ -1,0 +1,2 @@
+module ReadFanficsHelper
+end

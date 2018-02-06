@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     end
   end
 
-  # mount Markitup::Rails::Engine, at: "markitup", as: "markitup"
+  resources :read_fanfics
 
-  root to: "persons#index"
+  root to: "read_fanfics#index"
 end

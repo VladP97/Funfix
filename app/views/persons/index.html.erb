@@ -1,0 +1,20 @@
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th scope="col">id</th>
+    <th scope="col">Email</th>
+    <th scope="col">Login</th>
+    <th scope="col">Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.id %></td>
+      <td><%= user.email %></td>
+      <td><%= user.login %></td>
+      <td></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

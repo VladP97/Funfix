@@ -55,5 +55,4 @@ gem 'font-awesome-rails', '~> 4.7.0'
 gem 'cloudinary'
 gem 'carrierwave'
 gem 'dropzonejs-rails'
-
-# dhpelms3i
+gem 'cancancan'

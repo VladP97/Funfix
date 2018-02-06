@@ -1,0 +1,10 @@
+<% @chapters.each do |chapter| %>
+  <div class="chapters jumbotron row">
+    <img class="col" src="<%= chapter.image %>" alt="">
+    <div class="col">
+      <h2><%= chapter.title %></h2>
+      <hr>
+      <div> <%= markdown(chapter.text) %></div>
+    </div>
+  </div>
+<% end %>

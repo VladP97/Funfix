@@ -1,6 +1,6 @@
 class PersonsController < ApplicationController
   def index
-
+    @users = User.all.to_a
   end
 
   def show

@@ -1,8 +1,3 @@
-<%= link_to "Create new fanfic", new_person_fanfic_path(current_user.id) %>
-<% if can? :manage_users, User %>
-  <%= link_to "Show users", persons_path %>
-<% end %>
-
 <table class="table table-hover">
   <thead>
   <tr>
@@ -14,15 +9,15 @@
   </tr>
   </thead>
   <tbody>
-    <% @fanfics.each_with_index do |fanfic, index| %>
-    <tr data-href= "<%= person_fanfic_chapters_path(current_user.id, fanfic.id) %>" style="cursor: pointer;">
+  <% @fanfics.each_with_index do |fanfic, index| %>
+    <tr data-href= "<%= read_fanfic_path(fanfic.id) %>" style="cursor: pointer;">
       <th scope="row"><%= index.to_i + 1 %></th>
       <td class="table-image"><img src="<%= fanfic.image %>" alt="" style="width: 100%" ></td>
       <td><%= fanfic.title %></td>
       <td><%= fanfic.genre %></td>
       <td><%= fanfic.description %></td>
     </tr>
-    <% end %>
+  <% end %>
   </tbody>
 </table>
 <script>
