@@ -9,23 +9,27 @@
   </thead>
   <tbody>
   <% @users.each do |user| %>
-    <tr>
+    <tr data-href= "<%= person_path(user.id) %>" id="user">
       <td><%= user.id %></td>
       <td><%= user.email %></td>
       <td><%= user.login %></td>
       <td>
-        <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Dropdown button
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#">Action</a>
+          <%= link_to 'Edit', person_path(user.id, admin_role: 1, user_role: 0), method: :patch %>
           <a class="dropdown-item" href="#">Another action</a>
           <a class="dropdown-item" href="#">Something else here</a>
-        </div>
         </div>
       </td>
     </tr>
   <% end %>
   </tbody>
 </table>
+
+<script type="text/javascript" charset="utf-8">
+    $(document).on("click", "#user", function() {
+        window.location = "http://localhost:3000" + $(this).data("href");
+    });
+</script>
