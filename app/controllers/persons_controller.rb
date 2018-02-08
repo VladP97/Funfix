@@ -13,14 +13,30 @@ class PersonsController < ApplicationController
 
   def update
     set_admin(params)
+    ban_unban(params)
     redirect_to controller: "persons", action: "index"
   end
 
+  def destroy
+    User.destroy(params[:id])
+    redirect_to controller: "persons", action: "index"
+  end
+  
   private
 
   def set_admin(params)
     if params[:admin_role] || params[:user_role]
       User.update(params[:id], admin_role: params[:admin_role], user_role: params[:user_role])
+    end
+  end
+
+  def ban_unban(params)
+    if params[:ban_unban]
+      if User.find(params[:id]).banned
+        User.update(params[:id], banned: 0)
+      else
+        User.update(params[:id], banned: 1)
+      end
     end
   end
 end

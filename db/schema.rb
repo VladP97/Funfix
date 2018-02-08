@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180206114203) do
+ActiveRecord::Schema.define(version: 20180208103309) do
 
   create_table "chapters", force: :cascade do |t|
     t.integer  "fanfic_id",  limit: 4
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 20180206114203) do
     t.datetime "confirmation_sent_at"
     t.boolean  "admin_role",                         default: false
     t.boolean  "user_role",                          default: true
+    t.boolean  "banned",                             default: false
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

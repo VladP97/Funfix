@@ -4,7 +4,18 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  before_action :banned?
+
   protected
+
+  def banned?
+    if current_user && current_user.banned
+      sign_out current_user
+      flash[:error] = "This account has been banned"
+      root_path
+    end
+    # p current_user
+  end
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:login, :email, :password])

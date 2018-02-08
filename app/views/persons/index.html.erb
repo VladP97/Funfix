@@ -18,9 +18,9 @@
           Dropdown button
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <%= link_to 'Edit', person_path(user.id, admin_role: 1, user_role: 0), method: :patch %>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <%= link_to 'Set admin', person_path(user.id, admin_role: 1, user_role: 0), { class: 'dropdown-item', method: :patch } %>
+          <%= link_to 'Ban/Unban', person_path(user.id, ban_unban: 1), { class: 'dropdown-item', method: :patch } %>
+          <%= link_to 'Delete', person_path(user.id), { class: 'dropdown-item', method: :delete } %>
         </div>
       </td>
     </tr>
