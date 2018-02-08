@@ -8,6 +8,20 @@
 </div>
 <div class="comment-field">
   <label for="exampleInputEmail1">Leave your comment here</label>
-  <input type="text" class="form-control" placeholder="Enter comment">
-  <button type="button" class="btn btn-info">Comment</button>
+  <input type="text" class="form-control" placeholder="Enter comment" id="comment">
+  <button type="button" class="btn btn-info" id="comment-button">Comment</button>
 </div>
+<script>
+  $('#comment-button').click(function () {
+      $.ajax({
+          type: 'get',
+          url: '/comments/new',
+          data: {
+              fanfic_id: '<%= params[:read_fanfic_id] %>',
+              user_id: '<%= current_user.id %>',
+              comment: $('#comment').val()
+          }
+      });
+      $('#comment').val('');
+  });
+</script>
