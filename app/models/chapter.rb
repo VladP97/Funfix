@@ -1,3 +1,3 @@
-class Chapter < ActiveRecord::Base
+class Chapter < ApplicationRecord
   belongs_to :fanfic
 end
