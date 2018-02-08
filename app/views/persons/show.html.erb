@@ -1,4 +1,9 @@
-<%= link_to "Create new fanfic", new_person_fanfic_path(current_user.id) %>
+<% if current_user.admin_role %>
+  <%= link_to "Create new fanfic", new_person_fanfic_path(params[:id]) %>
+<% else %>
+  <%= link_to "Create new fanfic", new_person_fanfic_path(current_user.id) %>
+<% end %>
+
 <% if can? :manage_users, User %>
   <%= link_to "Show users", persons_path %>
 <% end %>

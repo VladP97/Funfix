@@ -1,8 +1,13 @@
 <%= link_to "Create new chapter", new_person_fanfic_chapter_path(current_user.id, fanfic.id) %>
 
 <% @chapters.each do |chapter| %>
-  <div>
+  <div data-href= "<%= read_fanfic_read_chapter_path(params[:id], chapter.id) %>">
     <img src="<%= chapter.image %>" alt="">
     <h2><%= chapter.title %></h2>
   </div>
 <% end %>
+<script type="text/javascript" charset="utf-8">
+    $(document).on("click", ".chapters", function() {
+        window.location = "http://localhost:3000" + $(this).data("href");
+    });
+</script>

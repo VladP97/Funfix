@@ -9,7 +9,7 @@
   </thead>
   <tbody>
   <% @users.each do |user| %>
-    <tr data-href= "<%= person_path(user.id) %>" id="user">
+    <tr data-href= "<%= person_path(user.id) %>" style="cursor: pointer;" id="user">
       <td><%= user.id %></td>
       <td><%= user.email %></td>
       <td><%= user.login %></td>

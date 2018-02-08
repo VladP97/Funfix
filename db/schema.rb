@@ -11,25 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180208103309) do
+ActiveRecord::Schema.define(version: 20180208131736) do
 
   create_table "chapters", force: :cascade do |t|
     t.integer  "fanfic_id",  limit: 4
     t.string   "title",      limit: 255
-    t.text     "text",       limit: 65535
+    t.text     "text",       limit: 16777215
     t.string   "image",      limit: 255
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   add_index "chapters", ["fanfic_id"], name: "index_chapters_on_fanfic_id", using: :btree
 
+  create_table "comments", force: :cascade do |t|
+    t.integer "user_id",   limit: 4
+    t.integer "fanfic_id", limit: 4
+    t.text    "comment",   limit: 65535
+  end
+
+  add_index "comments", ["fanfic_id"], name: "index_comments_on_fanfic_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
   create_table "fanfics", force: :cascade do |t|
     t.string   "title",       limit: 255
-    t.text     "description", limit: 65535
+    t.text     "description", limit: 16777215
     t.string   "image",       limit: 255
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.integer  "user_id",     limit: 4
     t.string   "genre",       limit: 255
   end
@@ -69,5 +78,7 @@ ActiveRecord::Schema.define(version: 20180208103309) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "chapters", "fanfics"
+  add_foreign_key "comments", "fanfics"
+  add_foreign_key "comments", "users"
   add_foreign_key "fanfics", "users"
 end

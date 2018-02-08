@@ -1,7 +1,10 @@
-<%= link_to "Create new chapter", new_person_fanfic_chapter_path(current_user.id, params[:fanfic_id]) %>
-
+<% if current_user.admin_role %>
+  <%= link_to "Create new chapter", new_person_fanfic_chapter_path(:id, params[:fanfic_id]) %>
+<% else %>
+  <%= link_to "Create new chapter", new_person_fanfic_chapter_path(current_user.id, params[:fanfic_id]) %>
+<% end %>
 <% @chapters.each do |chapter| %>
-  <div class="chapters jumbotron row">
+  <div data-href= "<%= read_fanfic_read_chapter_path(params[:fanfic_id], chapter.id) %>" class="chapters jumbotron row">
     <img class="col" src="<%= chapter.image %>" alt="">
     <div class="col">
       <h2><%= chapter.title %></h2>
@@ -10,3 +13,8 @@
     </div>
   </div>
 <% end %>
+<script type="text/javascript" charset="utf-8">
+    $(document).on("click", ".chapters", function() {
+        window.location = "http://localhost:3000" + $(this).data("href");
+    });
+</script>
