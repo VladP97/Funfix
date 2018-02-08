@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -13,69 +12,65 @@
 
 ActiveRecord::Schema.define(version: 20180208131736) do
 
-  create_table "chapters", force: :cascade do |t|
-    t.integer  "fanfic_id",  limit: 4
-    t.string   "title",      limit: 255
+  create_table "chapters", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
+    t.integer  "fanfic_id"
+    t.string   "title"
     t.text     "text",       limit: 16777215
-    t.string   "image",      limit: 255
+    t.string   "image"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.index ["fanfic_id"], name: "index_chapters_on_fanfic_id", using: :btree
   end
 
-  add_index "chapters", ["fanfic_id"], name: "index_chapters_on_fanfic_id", using: :btree
-
-  create_table "comments", force: :cascade do |t|
-    t.integer "user_id",   limit: 4
-    t.integer "fanfic_id", limit: 4
+  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "user_id"
+    t.integer "fanfic_id"
     t.text    "comment",   limit: 65535
+    t.index ["fanfic_id"], name: "index_comments_on_fanfic_id", using: :btree
+    t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
-  add_index "comments", ["fanfic_id"], name: "index_comments_on_fanfic_id", using: :btree
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
-
-  create_table "fanfics", force: :cascade do |t|
-    t.string   "title",       limit: 255
+  create_table "fanfics", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
+    t.string   "title"
     t.text     "description", limit: 16777215
-    t.string   "image",       limit: 255
+    t.string   "image"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
-    t.integer  "user_id",     limit: 4
-    t.string   "genre",       limit: 255
+    t.integer  "user_id"
+    t.string   "genre"
+    t.index ["user_id"], name: "index_fanfics_on_user_id", using: :btree
   end
 
-  add_index "fanfics", ["user_id"], name: "index_fanfics_on_user_id", using: :btree
-
-  create_table "genres", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+  create_table "genres", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string   "email",                  limit: 255, default: "",    null: false
-    t.string   "encrypted_password",     limit: 255, default: "",    null: false
-    t.string   "reset_password_token",   limit: 255
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          limit: 4,   default: 0,     null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",     limit: 255
-    t.string   "last_sign_in_ip",        limit: 255
-    t.datetime "created_at",                                         null: false
-    t.datetime "updated_at",                                         null: false
-    t.string   "login",                  limit: 255
-    t.string   "confirmation_token",     limit: 255
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.string   "login"
+    t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.boolean  "admin_role",                         default: false
-    t.boolean  "user_role",                          default: true
-    t.boolean  "banned",                             default: false
+    t.boolean  "admin_role",             default: false
+    t.boolean  "user_role",              default: true
+    t.boolean  "banned",                 default: false
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
-
-  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "chapters", "fanfics"
   add_foreign_key "comments", "fanfics"
