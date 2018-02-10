@@ -1,0 +1,7 @@
+<%= form_for comment, remote: true, authenticity_token: true do |f| %>
+  <%= f.label :leave_comment %>:
+  <%= f.text_area :comment, class: "form-control", data: {textarea: "comment"} %>
+
+  <%= f.hidden_field :fanfic_id, value: fanfic.id %>
+  <%= f.submit "send", class: "btn btn-primary", data: {send: "message"} %>
+<% end %>
