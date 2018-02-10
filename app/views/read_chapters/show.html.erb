@@ -9,7 +9,7 @@
 
 <%= render partial: 'comments/comment_form', locals: { fanfic: @fanfic, comment: @comment } %>
 <% if @fanfic.comments.any? %>
-  <div class="panel-body" id="messages">
+  <div class="panel-body" id="comments">
     <%= render partial: 'comments/comment', collection: @fanfic.comments %>
   </div>
 <% end %>

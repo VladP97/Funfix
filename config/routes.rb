@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
+
+  mount ActionCable.server => '/cable'
+
   resources :persons do
     resources :fanfics do
       resources :chapters

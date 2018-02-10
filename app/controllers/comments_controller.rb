@@ -6,11 +6,14 @@ class CommentsController < ActionController::Base
   end
 
   def create
-    message = Comment.new comment: params[:comment][:comment],
+    comment = Comment.new comment: params[:comment][:comment],
                           fanfic_id: params[:comment][:fanfic_id],
                           user_id: current_user.id
-    if message.save
-      # do some stuff
+    if comment.save
+      ActionCable.server.broadcast 'comments',
+                                   message: comment.comment,
+                                   user: comment.user.login
+      head :ok
     else
       redirect_to read_fanfic_read_chapters
     end
