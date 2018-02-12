@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180212104042) do
+ActiveRecord::Schema.define(version: 20180212152818) do
 
   create_table "chapters", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.integer  "fanfic_id"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20180212104042) do
     t.integer "user_id"
     t.integer "fanfic_id"
     t.text    "comment",   limit: 65535
+    t.integer "likes",                   default: 0
     t.index ["fanfic_id"], name: "index_comments_on_fanfic_id", using: :btree
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
@@ -45,6 +46,15 @@ ActiveRecord::Schema.define(version: 20180212104042) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "comment_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_likes_on_comment_id", using: :btree
+    t.index ["user_id"], name: "index_likes_on_user_id", using: :btree
   end
 
   create_table "ratings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -84,6 +94,8 @@ ActiveRecord::Schema.define(version: 20180212104042) do
   add_foreign_key "comments", "fanfics"
   add_foreign_key "comments", "users"
   add_foreign_key "fanfics", "users"
+  add_foreign_key "likes", "comments"
+  add_foreign_key "likes", "users"
   add_foreign_key "ratings", "chapters"
   add_foreign_key "ratings", "users"
 end

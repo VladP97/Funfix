@@ -1,1 +1,14 @@
-<p><strong><%=comment.user.login%>:</strong> <%=comment.comment%></p>
+<div comment-id="<%=comment.id%>">
+  <p>
+    <strong><%=comment.user.login%>:</strong> <%=comment.comment%>
+  <div class="likes">
+    <div class="counts">
+      <%= comment.likes %>
+    </div>
+    <%= link_to comment_path(comment.id), { method: :patch, remote: true, authenticity_token: true } do  %>
+      <i class="far fa-thumbs-up"></i>
+    <% end %>
+  </div>
+  </p>
+</div>
+<hr>

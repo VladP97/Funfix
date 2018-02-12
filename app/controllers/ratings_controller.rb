@@ -1,6 +1,6 @@
 class RatingsController < ApplicationController
   def new
-    if !Rating.where(user_id: current_user.id, chapter_id: params[:read_chapter_id])
+    if Rating.where(user_id: current_user.id, chapter_id: params[:read_chapter_id]).to_a == []
       Rating.create(user_id: current_user.id,
                     chapter_id: params[:read_chapter_id],
                     rating: params[:rating])

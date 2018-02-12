@@ -90,10 +90,19 @@
   color: #b4b4b4;
 }
 
-.fa-star:hover {
-  color: #1c1c1c;
+.rate {
+  display: inline;
 }
 
-.rate {
+.likes {
+  margin-left: 95%;
+}
+
+.comments {
+  width: 80%;
+  margin: auto;
+}
+
+.counts {
   display: inline;
 }

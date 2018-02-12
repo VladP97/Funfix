@@ -25,15 +25,24 @@
   <div>Average rating: <%= @rating %></div>
   <div>User rating: <%= @user_rating %></div>
 </div>
-<%= render partial: 'comments/comment_form', locals: { fanfic: @fanfic, comment: @comment } %>
-<% if @fanfic.comments.any? %>
-  <div class="panel-body" id="comments">
-    <%= render partial: 'comments/comment', collection: @fanfic.comments %>
-  </div>
-<% end %>
+<div class="comments">
+  <%= render partial: 'comments/comment_form', locals: { fanfic: @fanfic, comment: @comment } %>
+  <% if @fanfic.comments.any? %>
+    <div class="panel-body" id="comments">
+      <%= render partial: 'comments/comment', collection: @fanfic.comments %>
+    </div>
+  <% end %>
+</div>
 <script>
     $(document).on("click", ".rate", function() {
-        console.log('sdfdsfds');
         window.location = "http://localhost:3000" + $(this).data("href");
+    });
+    $('.rate').mouseenter(function () {
+        $(this).prevAll().find('svg').css({'color': '#1c1c1c'});
+        $(this).find('svg').css({'color': '#1c1c1c'})
+    });
+    $('.rate').mouseleave(function () {
+        $(this).prevAll().find('svg').css({'color': '#b4b4b4'});
+        $(this).find('svg').css({'color': '#b4b4b4'})
     });
 </script>
