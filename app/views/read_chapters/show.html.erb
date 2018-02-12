@@ -6,10 +6,34 @@
     <div> <%= markdown(@chapter.text) %></div>
   </div>
 </div>
-
+<div class="rating">
+  <div data-href= "<%= new_read_fanfic_read_chapter_rating_path(params[:read_fanfic_id], params[:id], rating: 1) %>" class="rate">
+    <i class="fas fa-star"></i>
+  </div>
+  <div data-href= "<%= new_read_fanfic_read_chapter_rating_path(params[:read_fanfic_id], params[:id], rating: 2) %>" class="rate">
+    <i class="fas fa-star"></i>
+  </div>
+  <div data-href= "<%= new_read_fanfic_read_chapter_rating_path(params[:read_fanfic_id], params[:id], rating: 3) %>" class="rate">
+    <i class="fas fa-star"></i>
+  </div>
+  <div data-href= "<%= new_read_fanfic_read_chapter_rating_path(params[:read_fanfic_id], params[:id], rating: 4) %>" class="rate">
+    <i class="fas fa-star"></i>
+  </div>
+  <div data-href= "<%= new_read_fanfic_read_chapter_rating_path(params[:read_fanfic_id], params[:id], rating: 5) %>" class="rate">
+    <i class="fas fa-star"></i>
+  </div>
+  <div>Average rating: <%= @rating %></div>
+  <div>User rating: <%= @user_rating %></div>
+</div>
 <%= render partial: 'comments/comment_form', locals: { fanfic: @fanfic, comment: @comment } %>
 <% if @fanfic.comments.any? %>
   <div class="panel-body" id="comments">
     <%= render partial: 'comments/comment', collection: @fanfic.comments %>
   </div>
 <% end %>
+<script>
+    $(document).on("click", ".rate", function() {
+        console.log('sdfdsfds');
+        window.location = "http://localhost:3000" + $(this).data("href");
+    });
+</script>

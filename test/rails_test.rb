@@ -13,7 +13,7 @@ class RailsTest < ActionDispatch::IntegrationTest
   end
 
   def test_autoprefixer
-    get ActionController::Base.helpers.stylesheet_path('application.scss')
+    get ActionController::Base.helpers.stylesheet_path('application.css.scss')
     assert_match(/-webkit-(?:transition|transform)/, response.body)
   end
 

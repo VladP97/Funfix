@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   end
 
   resources :read_fanfics do
-    resources :read_chapters
+    resources :read_chapters do
+      resources :ratings
+    end
   end
 
   resources :comments

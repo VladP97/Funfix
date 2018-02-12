@@ -1,8 +1,8 @@
 @import "bootstrap";
-@import "font-awesome";
 @import "markitup/skins/markitup/style";
 @import "markitup/sets/xbbcode/style";
 @import "dropzone/dropzone";
+
 
 .new_fanfic {
   width: 40%;
@@ -78,4 +78,22 @@
 .btn-info {
   margin: 1% 0;
   float: right;
+}
+
+.rating {
+  width: 80%;
+  margin: auto;
+  text-align: right;
+}
+
+.fa-star {
+  color: #b4b4b4;
+}
+
+.fa-star:hover {
+  color: #1c1c1c;
+}
+
+.rate {
+  display: inline;
 }
