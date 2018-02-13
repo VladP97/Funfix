@@ -16,6 +16,7 @@
     <th scope="col">Title</th>
     <th scope="col">Genre</th>
     <th scope="col">Description</th>
+    <th scope="col">Edit</th>
   </tr>
   </thead>
   <tbody>
@@ -26,12 +27,14 @@
       <td><%= fanfic.title %></td>
       <td><%= fanfic.genre %></td>
       <td><%= fanfic.description %></td>
+      <td><%= link_to 'Edit', edit_person_fanfic_path(params[:id], fanfic.id) %></td>
     </tr>
     <% end %>
   </tbody>
 </table>
 <script>
-    $(document).on("click", "tbody > tr", function() {
+    $(document).on("click", "tbody > tr > td", function() {
+        console.log();
         window.location = "http://localhost:3000" + $(this).data("href");
     });
 </script>

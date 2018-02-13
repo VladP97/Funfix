@@ -3,7 +3,6 @@
 @import "markitup/sets/xbbcode/style";
 @import "dropzone/dropzone";
 
-
 .new_fanfic {
   width: 40%;
   margin: auto;
@@ -25,7 +24,7 @@
 
 .chapters {
   width: 80%;
-  margin: 2% auto;
+  margin: 0 auto 2%;
   cursor: pointer;
 
   div {
@@ -105,4 +104,12 @@
 
 .counts {
   display: inline;
+}
+
+.edit-link {
+  margin: 2% 0 0 9%;
+}
+
+.new-chapter {
+  display: block;
 }

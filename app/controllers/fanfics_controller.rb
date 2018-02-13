@@ -14,4 +14,27 @@ class FanficsController < PersonsController
         user_id: new_fanfic_params[:user_id]).save
     redirect_to person_path(current_user.id)
   end
+
+  def edit
+    @genres = Genre.pluck(:name, :name)
+    @fanfic = Fanfic.find(params[:id])
+  end
+
+  def update
+    image_url = generate_image_url(params[:fanfic][:image])
+    Fanfic.update( params[:id],
+                    title: params[:fanfic][:title], description: params[:fanfic][:description],
+                    image: image_url)
+    redirect_to person_path(current_user.id)
+  end
+
+  private
+
+  def generate_image_url(image_name)
+    if image_name.match(/http:\/\/res.cloudinary.com\/dhpelms3i\/image\/upload\/v1517841525\//)
+      image_name
+    else
+      'http://res.cloudinary.com/dhpelms3i/image/upload/v1517841525/' + image_name
+    end
+  end
 end

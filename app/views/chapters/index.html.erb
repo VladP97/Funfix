@@ -1,9 +1,10 @@
 <% if current_user.admin_role %>
-  <%= link_to "Create new chapter", new_person_fanfic_chapter_path(:id, params[:fanfic_id]) %>
+  <%= link_to "Create new chapter", new_person_fanfic_chapter_path(:id, params[:fanfic_id]), { class: "new-chapter" } %>
 <% else %>
-  <%= link_to "Create new chapter", new_person_fanfic_chapter_path(current_user.id, params[:fanfic_id]) %>
+  <%= link_to "Create new chapter", new_person_fanfic_chapter_path(current_user.id, params[:fanfic_id]), { class: "new-chapter" } %>
 <% end %>
 <% @chapters.each do |chapter| %>
+  <%= link_to 'Edit', edit_person_fanfic_chapter_path(params[:person_id], params[:fanfic_id], chapter.id), { class: "col-md-12 edit-link" } %>
   <div data-href= "<%= read_fanfic_read_chapter_path(params[:fanfic_id], chapter.id) %>" class="chapters jumbotron row">
     <img class="col" src="<%= chapter.image %>" alt="">
     <div class="col">
