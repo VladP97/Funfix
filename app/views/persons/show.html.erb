@@ -22,12 +22,12 @@
     </thead>
     <tbody>
     <% @fanfics.each_with_index do |fanfic, index| %>
-      <tr data-href= "<%= person_fanfic_chapters_path(params[:id], fanfic.id) %>" style="cursor: pointer;">
-        <th scope="row"><%= index.to_i + 1 %></th>
-        <td class="table-image"><img src="<%= fanfic.image %>" alt="" style="width: 100%" ></td>
-        <td><%= fanfic.title %></td>
-        <td><%= fanfic.genre %></td>
-        <td><%= fanfic.description %></td>
+      <tr style="cursor: pointer;">
+        <td data-href= "<%= person_fanfic_chapters_path(params[:id], fanfic.id) %>" scope="row"><%= index.to_i + 1 %></td>
+        <td data-href= "<%= person_fanfic_chapters_path(params[:id], fanfic.id) %>" class="table-image"><img src="<%= fanfic.image %>" alt="" style="width: 100%" ></td>
+        <td data-href= "<%= person_fanfic_chapters_path(params[:id], fanfic.id) %>"><%= fanfic.title %></td>
+        <td data-href= "<%= person_fanfic_chapters_path(params[:id], fanfic.id) %>"><%= fanfic.genre %></td>
+        <td data-href= "<%= person_fanfic_chapters_path(params[:id], fanfic.id) %>"><%= fanfic.description %></td>
         <td>
           <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -47,7 +47,7 @@
 
 <script>
     $(document).on("click", "tbody > tr > td", function() {
-        console.log();
+        console.log(this);
         window.location = "http://localhost:3000" + $(this).data("href");
     });
     $(document).ready(function() {

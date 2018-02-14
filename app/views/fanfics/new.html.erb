@@ -14,6 +14,7 @@
     <%= f.select :genre, { Genres: @genres }, {}, { class: "custom-select" } %>
   </div>
 
+  <div id="magicsuggest"></div>
 
   <div class="form-group">
     <%= f.label :description %>
@@ -28,17 +29,32 @@
     <%= f.text_field :image, class: "form-control image"%>
   </div>
 
+  <%= f.hidden_field :tags %>
+
   <%= f.submit "Create", class: "btn btn-primary" %>
 <% end %>
 
 <script>
-    $(function() {
-        if($.fn.cloudinary_fileupload !== undefined) {
-            $("input.cloudinary-fileupload[type=file]").cloudinary_fileupload();
-        }
-    });
-
     $(document).ready(function () {
+        $(function() {
+            if($.fn.cloudinary_fileupload !== undefined) {
+                $("input.cloudinary-fileupload[type=file]").cloudinary_fileupload();
+            }
+
+            var ms = $('#magicsuggest').magicSuggest();
+            $.ajax({
+                url: '/tags',
+                method: 'get',
+                success: function (response) {
+                    ms.setData(response.tags);
+                }
+            });
+            $(ms).on('selectionchange', function (e,m) {
+                console.log();
+                $('#fanfic_tags').attr('value', m.getSelection().map(function (obj) { return obj.name }).join(' '));
+            });
+        });
+
         var myDropzone = new Dropzone(document.getElementById('dropzone-area'), {
             uploadMultiple: false,
             acceptedFiles:'.jpg,.png,.jpeg,.gif',

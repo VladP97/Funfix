@@ -16,6 +16,7 @@
 //= require jquery_ujs
 //= require dataTables/jquery.dataTables
 //= require dataTables/extras/dataTables.responsive
+//= require magicsuggest-min
 //= require bootstrap
 //= require bootstrap-sprockets
 //= require markitup

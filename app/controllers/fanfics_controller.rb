@@ -7,11 +7,8 @@ class FanficsController < PersonsController
   def create
     new_fanfic_params = params[:fanfic]
     new_fanfic_params.merge!(user_id: params[:person_id].to_s)
-    Fanfic.create(
-        title: new_fanfic_params[:title], description: new_fanfic_params[:description],
-        image: 'http://res.cloudinary.com/dhpelms3i/image/upload/v1517841525/' + new_fanfic_params[:image],
-        genre: new_fanfic_params[:genre],
-        user_id: new_fanfic_params[:user_id]).save
+    add_tags(params[:fanfic][:tags])
+    add_fanfic(new_fanfic_params)
     redirect_to person_path(current_user.id)
   end
 
@@ -29,7 +26,7 @@ class FanficsController < PersonsController
   end
 
   def destroy
-    User.find(params[:person_id]).fanfics.find(params[:id]).destroy
+    Fanfics.find(params[:id]).destroy
     redirect_to person_path(current_user.id)
   end
   
@@ -41,5 +38,22 @@ class FanficsController < PersonsController
     else
       'http://res.cloudinary.com/dhpelms3i/image/upload/v1517841525/' + image_name
     end
+  end
+
+  def add_tags(tags)
+    tags_array = tags.split
+    tags_array.each {|tag|
+      if !Tag.where(tag: tag).any?
+        Tag.create(tag: tag)
+      end }
+  end
+
+  def add_fanfic(new_fanfic_params)
+    Fanfic.create(
+        title: new_fanfic_params[:title], description: new_fanfic_params[:description],
+        image: 'http://res.cloudinary.com/dhpelms3i/image/upload/v1517841525/' + new_fanfic_params[:image],
+        genre: new_fanfic_params[:genre],
+        user_id: new_fanfic_params[:user_id],
+        tags: new_fanfic_params[:tags]).save
   end
 end

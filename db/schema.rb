@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180212152818) do
+ActiveRecord::Schema.define(version: 20180214154258) do
 
   create_table "chapters", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.integer  "fanfic_id"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20180212152818) do
     t.datetime "updated_at",                   null: false
     t.integer  "user_id"
     t.string   "genre"
+    t.text     "tags",        limit: 65535
     t.index ["user_id"], name: "index_fanfics_on_user_id", using: :btree
   end
 
@@ -63,6 +64,12 @@ ActiveRecord::Schema.define(version: 20180212152818) do
     t.integer "rating"
     t.index ["chapter_id"], name: "index_ratings_on_chapter_id", using: :btree
     t.index ["user_id"], name: "index_ratings_on_user_id", using: :btree
+  end
+
+  create_table "tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "tag"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|

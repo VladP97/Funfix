@@ -17,5 +17,7 @@ Rails.application.routes.draw do
 
   resources :comments
 
+  resources :tags
+
   root to: "read_fanfics#index"
 end
