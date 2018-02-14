@@ -2,6 +2,7 @@
 @import "markitup/skins/markitup/style";
 @import "markitup/sets/xbbcode/style";
 @import "dropzone/dropzone";
+@import "dataTables/jquery.dataTables";
 
 .new_fanfic {
   width: 40%;
@@ -140,4 +141,9 @@
 .current-chapter {
   background-color: #333333;
   color: #fff !important;
+}
+
+.table-block {
+  max-width: 95%;
+  margin: auto;
 }

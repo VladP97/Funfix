@@ -8,43 +8,51 @@
   <%= link_to "Show users", persons_path %>
 <% end %>
 
-<table class="table table-hover">
-  <thead>
-  <tr>
-    <th scope="col">#</th>
-    <th scope="col">Image</th>
-    <th scope="col">Title</th>
-    <th scope="col">Genre</th>
-    <th scope="col">Description</th>
-    <th scope="col">Actions</th>
-  </tr>
-  </thead>
-  <tbody>
-    <% @fanfics.each_with_index do |fanfic, index| %>
-    <tr data-href= "<%= person_fanfic_chapters_path(params[:id], fanfic.id) %>" style="cursor: pointer;">
-      <th scope="row"><%= index.to_i + 1 %></th>
-      <td class="table-image"><img src="<%= fanfic.image %>" alt="" style="width: 100%" ></td>
-      <td><%= fanfic.title %></td>
-      <td><%= fanfic.genre %></td>
-      <td><%= fanfic.description %></td>
-      <td>
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Actions
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <%= link_to 'Edit', edit_person_fanfic_path(params[:id], fanfic.id), { class: 'dropdown-item' } %>
-            <%= link_to 'Delete', person_fanfic_path(params[:id], fanfic.id), { method: "delete", class: 'dropdown-item' } %>
-          </div>
-        </div>
-      </td>
+<div class="table-block">
+  <table class="table table-hover table-bordered">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Image</th>
+      <th scope="col">Title</th>
+      <th scope="col">Genre</th>
+      <th scope="col">Description</th>
+      <th scope="col">Actions</th>
     </tr>
+    </thead>
+    <tbody>
+    <% @fanfics.each_with_index do |fanfic, index| %>
+      <tr data-href= "<%= person_fanfic_chapters_path(params[:id], fanfic.id) %>" style="cursor: pointer;">
+        <th scope="row"><%= index.to_i + 1 %></th>
+        <td class="table-image"><img src="<%= fanfic.image %>" alt="" style="width: 100%" ></td>
+        <td><%= fanfic.title %></td>
+        <td><%= fanfic.genre %></td>
+        <td><%= fanfic.description %></td>
+        <td>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Actions
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <%= link_to 'Edit', edit_person_fanfic_path(params[:id], fanfic.id), { class: 'dropdown-item' } %>
+              <%= link_to 'Delete', person_fanfic_path(params[:id], fanfic.id), { method: "delete", class: 'dropdown-item' } %>
+            </div>
+          </div>
+        </td>
+      </tr>
     <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+</div>
+
 <script>
     $(document).on("click", "tbody > tr > td", function() {
         console.log();
         window.location = "http://localhost:3000" + $(this).data("href");
     });
+    $(document).ready(function() {
+        $('.table-hover').DataTable({
+            responsive: true
+        });
+    } );
 </script>
