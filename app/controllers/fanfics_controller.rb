@@ -28,6 +28,11 @@ class FanficsController < PersonsController
     redirect_to person_path(current_user.id)
   end
 
+  def destroy
+    User.find(params[:person_id]).fanfics.find(params[:id]).destroy
+    redirect_to person_path(current_user.id)
+  end
+  
   private
 
   def generate_image_url(image_name)

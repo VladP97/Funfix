@@ -16,7 +16,7 @@
     <th scope="col">Title</th>
     <th scope="col">Genre</th>
     <th scope="col">Description</th>
-    <th scope="col">Edit</th>
+    <th scope="col">Actions</th>
   </tr>
   </thead>
   <tbody>
@@ -27,7 +27,17 @@
       <td><%= fanfic.title %></td>
       <td><%= fanfic.genre %></td>
       <td><%= fanfic.description %></td>
-      <td><%= link_to 'Edit', edit_person_fanfic_path(params[:id], fanfic.id) %></td>
+      <td>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Actions
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <%= link_to 'Edit', edit_person_fanfic_path(params[:id], fanfic.id), { class: 'dropdown-item' } %>
+            <%= link_to 'Delete', person_fanfic_path(params[:id], fanfic.id), { method: "delete", class: 'dropdown-item' } %>
+          </div>
+        </div>
+      </td>
     </tr>
     <% end %>
   </tbody>
