@@ -1,3 +1,13 @@
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<div class="chapter-navigation">
+  <% @chapters.each_with_index  do |chapter, index| %>
+    <% if chapter.id == params[:id].to_i %>
+      <%= link_to "#{index + 1}", read_fanfic_read_chapter_path(chapter.fanfic_id, chapter.id), { class: 'current-chapter'} %>
+    <% else %>
+      <%= link_to "#{index + 1}", read_fanfic_read_chapter_path(chapter.fanfic_id, chapter.id) %>
+    <% end %>
+  <% end %>
+</div>
 <div class="read-chapter jumbotron row">
   <img class="" src="<%= @chapter.image %>" alt="">
   <div class="">

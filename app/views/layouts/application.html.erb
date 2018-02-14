@@ -8,11 +8,14 @@
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tags %>
   <%= action_cable_meta_tag %>
-  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 </head>
 <body>
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <%= link_to 'Fanfics', root_path, { class: "navbar-brand"} %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <% if user_signed_in? %>
@@ -22,7 +25,7 @@
             <%= link_to 'Выйти', destroy_user_session_path, :method => :delete, :class => "nav-link" %>
           </li>
         <% else %>
-          <li class="nav-item">
+          <li class="nav-item" style="margin-right: 5%;">
             <%= link_to 'Войти', new_user_session_path, :class => "nav-link" %>
           </li>
           <li class="nav-item">

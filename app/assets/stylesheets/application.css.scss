@@ -113,3 +113,31 @@
 .new-chapter {
   display: block;
 }
+
+.nav-link {
+  padding: 0 !important;
+}
+
+.navbar-collapse {
+  margin-left: 70%;
+}
+
+.chapter-navigation {
+  margin-top: 2%;
+  text-align: center;
+
+  a {
+    color: #333333;
+    padding: 2px;
+  }
+
+  a:hover {
+    color: #333333;
+    text-decoration: none;
+  }
+}
+
+.current-chapter {
+  background-color: #333333;
+  color: #fff !important;
+}
