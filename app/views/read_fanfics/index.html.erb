@@ -6,30 +6,58 @@
     </button>
   </div>
 <% end %>
-<table class="table table-hover">
-  <thead>
-  <tr>
-    <th scope="col">#</th>
-    <th scope="col">Image</th>
-    <th scope="col">Title</th>
-    <th scope="col">Genre</th>
-    <th scope="col">Description</th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @fanfics.each_with_index do |fanfic, index| %>
-    <tr data-href= "<%= read_fanfic_path(fanfic.id) %>" style="cursor: pointer;">
-      <th scope="row"><%= index.to_i + 1 %></th>
-      <td class="table-image"><img src="<%= fanfic.image %>" alt="" style="width: 100%" ></td>
-      <td><%= fanfic.title %></td>
-      <td><%= fanfic.genre %></td>
-      <td><%= fanfic.description %></td>
-    </tr>
+<div class="tag-cloud">
+  <% @tags.each do |tag| %>
+    <span class="badge badge-secondary"><%= tag.tag %></span>
   <% end %>
-  </tbody>
-</table>
+  <br>
+  <div class="btn-group" role="group" aria-label="Basic example">
+    <button type="button" class="btn btn-secondary" id="tags-search-any">Include any tags</button>
+    <button type="button" class="btn btn-secondary" id="tags-search-all">Include all tags</button>
+  </div>
+</div>
+<div id="fanfics">
+  <%= render partial: 'read_fanfics/fanfics', locals: { fanfics: @fanfics } %>
+</div>
 <script>
     $(document).on("click", "tbody > tr", function() {
         window.location = "http://localhost:3000" + $(this).data("href");
+    });
+    $('.badge').click(function () {
+        $(this).toggleClass('badge-secondary badge-primary');
+    });
+    $('#tags-search-all').click(function () {
+        var tagsArray = [];
+        $('.badge-primary').each(function (index, elem) {
+            tagsArray.push(elem.textContent);
+        });
+        $.ajax({
+            url: '/read_fanfics',
+            method: 'get',
+            data: {
+                tags: tagsArray,
+                search: 'search_all'
+            },
+            success: function (response) {
+                $('#fanfics').html(response);
+            }
+        });
+    });
+    $('#tags-search-any').click(function () {
+        var tagsArray = [];
+        $('.badge-primary').each(function (index, elem) {
+            tagsArray.push(elem.textContent);
+        });
+        $.ajax({
+            url: '/read_fanfics',
+            method: 'get',
+            data: {
+                tags: tagsArray,
+                search: 'search_any'
+            },
+            success: function (response) {
+                $('#fanfics').html(response);
+            }
+        });
     });
 </script>

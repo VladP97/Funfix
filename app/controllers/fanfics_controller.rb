@@ -43,7 +43,10 @@ class FanficsController < PersonsController
   def add_tags(tags)
     tags_array = tags.split
     tags_array.each {|tag|
-      if !Tag.where(tag: tag).any?
+      active_record_tag = Tag.where(tag: tag)
+      if active_record_tag.any?
+        Tag.update(active_record_tag[0][:id], count: active_record_tag[0][:count] + 1)
+      else
         Tag.create(tag: tag)
       end }
   end

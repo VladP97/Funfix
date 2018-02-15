@@ -8,7 +8,7 @@ class CommentsController < ActionController::Base
   end
 
   def update
-    if Like.where(user_id: current_user.id, comment_id: params[:id]).to_a == []
+    if !Like.where(user_id: current_user.id, comment_id: params[:id]).any?
       comment = Comment.find(params[:id])
       comment.likes += 1
       comment.save
