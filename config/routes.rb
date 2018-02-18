@@ -19,5 +19,7 @@ Rails.application.routes.draw do
 
   resources :tags
 
+  resources :searches
+
   root to: "read_fanfics#index"
 end

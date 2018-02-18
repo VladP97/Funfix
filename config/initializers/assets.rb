@@ -7,6 +7,7 @@ Rails.application.config.assets.precompile += %w( jquery.ui.widget.js )
 Rails.application.config.assets.precompile += %w( jquery.iframe-transport.js )
 Rails.application.config.assets.precompile += %w( jquery.fileupload.js )
 Rails.application.config.assets.precompile += %w( jquery.cloudinary.js )
+Rails.application.config.assets.precompile += %w( search.js )
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path
 

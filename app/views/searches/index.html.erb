@@ -1,0 +1,8 @@
+<div id="fanfics">
+  <%= render partial: 'read_fanfics/fanfics', locals: { fanfics: @fanfics } %>
+</div>
+<script>
+    $(document).on("click", "tbody > tr", function() {
+        window.location = "http://localhost:3000" + $(this).data("href");
+    });
+</script>

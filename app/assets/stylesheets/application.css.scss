@@ -120,8 +120,9 @@
   padding: 0 !important;
 }
 
-.navbar-collapse {
-  margin-left: 70%;
+.mr-auto {
+  margin-left: auto !important;
+  margin-right: 0 !important;
 }
 
 .chapter-navigation {
@@ -156,4 +157,8 @@
 
 .badge {
   cursor: pointer;
+}
+
+.search {
+  padding: 5%;
 }

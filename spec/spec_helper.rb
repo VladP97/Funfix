@@ -1,16 +1,59 @@
-# frozen_string_literal: true
+require 'machinist/active_record'
+require 'sham'
+require 'faker'
+require 'ransack'
+require 'pry'
+require 'simplecov'
 
-require 'bundler/setup'
-require 'popper_js'
+SimpleCov.start
+I18n.enforce_available_locales = false
+Time.zone = 'Eastern Time (US & Canada)'
+I18n.load_path += Dir[File.join(File.dirname(__FILE__), 'support', '*.yml')]
+
+Dir[File.expand_path('../{helpers,support,blueprints}/*.rb', __FILE__)]
+.each { |f| require f }
+
+Sham.define do
+  name        { Faker::Name.name }
+  title       { Faker::Lorem.sentence }
+  body        { Faker::Lorem.paragraph }
+  salary      { |index| 30000 + (index * 1000) }
+  tag_name    { Faker::Lorem.words(3).join(' ') }
+  note        { Faker::Lorem.words(7).join(' ') }
+  only_admin  { Faker::Lorem.words(3).join(' ') }
+  only_search { Faker::Lorem.words(3).join(' ') }
+  only_sort   { Faker::Lorem.words(3).join(' ') }
+  notable_id  { |id| id }
+end
 
 RSpec.configure do |config|
-  # Enable flags like --only-failures and --next-failure
-  config.example_status_persistence_file_path = '.rspec_status'
+  config.alias_it_should_behave_like_to :it_has_behavior, 'has behavior'
 
-  # Disable RSpec exposing methods globally on `Module` and `main`
-  config.disable_monkey_patching!
+  config.before(:suite) do
+    message = "Running Ransack specs with #{
+      ActiveRecord::Base.connection.adapter_name
+      }, Active Record #{::ActiveRecord::VERSION::STRING}, Arel #{Arel::VERSION
+      } and Ruby #{RUBY_VERSION}"
+    line = '=' * message.length
+    puts line, message, line
+    Schema.create
+  end
 
-  config.expect_with :rspec do |c|
-    c.syntax = :expect
+  config.before(:all)   { Sham.reset(:before_all) }
+  config.before(:each)  { Sham.reset(:before_each) }
+
+  config.include RansackHelper
+end
+
+RSpec::Matchers.define :be_like do |expected|
+  match do |actual|
+    actual.gsub(/^\s+|\s+$/, '').gsub(/\s+/, ' ').strip ==
+      expected.gsub(/^\s+|\s+$/, '').gsub(/\s+/, ' ').strip
+  end
+end
+
+RSpec::Matchers.define :have_attribute_method do |expected|
+  match do |actual|
+    actual.attribute_method?(expected)
   end
 end
