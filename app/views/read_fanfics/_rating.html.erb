@@ -1,0 +1,9 @@
+<div class="col-md-12">
+  <% 5.times do |index| %>
+    <% if index + 1 > fanfic.ratings.average(:rating).to_i %>
+      <i class="fas fa-star"></i>
+    <% else %>
+      <i class="fas fa-star" style="color: black"></i>
+    <% end %>
+  <% end %>
+</div>

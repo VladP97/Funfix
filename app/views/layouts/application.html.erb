@@ -25,9 +25,11 @@
         <li class="nav-item">
           <div class="input-group search">
             <%= form_tag(read_fanfics_path, method: "get") do %>
-              <%= text_field_tag(:criteria) %>
+              <%= text_field_tag(:criteria, nil, {class: "form-control search-input"}) %>
               <%= hidden_field_tag "search", "search" %>
-              <%= submit_tag("Search") %>
+              <span class="input-group-btn">
+                <%= submit_tag("Search", {class: "btn btn-secondary search-button"}) %>
+              </span>
             <% end %>
           </div>
         </li>

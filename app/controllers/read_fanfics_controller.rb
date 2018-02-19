@@ -1,6 +1,5 @@
 class ReadFanficsController < ApplicationController
   def index
-    p params
     case params[:search]
       when 'search_all'
         search_by_tags_any(params[:tags])

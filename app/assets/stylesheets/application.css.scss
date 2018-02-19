@@ -162,3 +162,56 @@
 .search {
   padding: 5%;
 }
+
+.search-input {
+  display: inline-block;
+  width: 65%;
+}
+
+.search-button {
+  //display: inline-block !important;
+}
+
+.fanfic-display {
+  width: 80%;
+  margin: 2% auto;
+  padding: 3%;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  border: #747576 solid 2px;
+
+  img {
+    width: 100%;
+  }
+
+  a {
+    text-decoration: none;
+    color: #0b2121;
+  }
+
+  hr {
+    width: 100%;
+  }
+}
+
+.fanfic-display:hover {
+  box-shadow: 0 0 10px rgba(0,0,0,1);
+  background-color: #f4f5f6;
+  a {
+
+    div {
+
+      h2 {
+        text-decoration: underline #0c0c0c;
+      }
+    }
+  }
+}
+
+.fanfic-comments {
+  text-align: right;
+
+  p {
+    margin: 0;
+  }
+}
