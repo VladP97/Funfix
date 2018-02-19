@@ -2,16 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="597a42ec-f797-4cce-a5a1-22a1fa750e26" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/views/read_fanfics/_rating.html.erb" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.css.scss" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/read_fanfics_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/read_fanfics_controller.rb" />
-      <change beforePath="$PROJECT_DIR$/app/models/chapter.rb" afterPath="$PROJECT_DIR$/app/models/chapter.rb" />
-      <change beforePath="$PROJECT_DIR$/app/models/fanfic.rb" afterPath="$PROJECT_DIR$/app/models/fanfic.rb" />
-      <change beforePath="$PROJECT_DIR$/app/models/rating.rb" afterPath="$PROJECT_DIR$/app/models/rating.rb" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/read_chapters_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/read_chapters_controller.rb" />
       <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/read_fanfics/_fanfics.html.erb" afterPath="$PROJECT_DIR$/app/views/read_fanfics/_fanfics.html.erb" />
-      <change beforePath="$PROJECT_DIR$/app/views/read_fanfics/index.html.erb" afterPath="$PROJECT_DIR$/app/views/read_fanfics/index.html.erb" />
+      <change beforePath="$PROJECT_DIR$/app/views/read_chapters/show.html.erb" afterPath="$PROJECT_DIR$/app/views/read_chapters/show.html.erb" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,26 +17,6 @@
   <component name="ChangesViewManager" flattened_view="false" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="read_fanfics_controller.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/read_fanfics_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="11" column="7" lean-forward="false" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="comment.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/comment.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="3" column="18" lean-forward="false" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="_fanfics.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/read_fanfics/_fanfics.html.erb">
           <provider selected="true" editor-type-id="text-editor">
@@ -53,33 +27,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fanfic.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/fanfic.rb">
+      <file leaf-file-name="show.html.erb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/read_chapters/show.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="3" column="31" lean-forward="false" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
+            <state relative-caret-position="702">
+              <caret line="39" column="98" lean-forward="false" selection-start-line="39" selection-start-column="98" selection-end-line="39" selection-end-column="98" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_rating.html.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/read_fanfics/_rating.html.erb">
+      <file leaf-file-name="read_chapters_controller.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/read_chapters_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="21" lean-forward="false" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
-              <folding>
-                <element signature="n#style#0;n#i#1;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application.css.scss" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="522">
-              <caret line="214" column="13" lean-forward="false" selection-start-line="214" selection-start-column="13" selection-end-line="214" selection-end-column="13" />
+            <state relative-caret-position="126">
+              <caret line="7" column="87" lean-forward="false" selection-start-line="7" selection-start-column="87" selection-end-line="7" selection-end-column="87" />
               <folding />
             </state>
           </provider>
@@ -131,8 +93,6 @@
         <option value="$PROJECT_DIR$/app/views/fanfics/edit.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/chapters_controller.rb" />
         <option value="$PROJECT_DIR$/config/environments/development.rb" />
-        <option value="$PROJECT_DIR$/app/views/read_chapters/show.html.erb" />
-        <option value="$PROJECT_DIR$/app/controllers/read_chapters_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/persons/index.html.erb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/app/views/persons/show.html.erb" />
@@ -150,7 +110,6 @@
         <option value="$PROJECT_DIR$/app/views/searches/index.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/searches_controller.rb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/search.js" />
-        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/models/rating.rb" />
         <option value="$PROJECT_DIR$/app/models/chapter.rb" />
         <option value="$PROJECT_DIR$/app/models/fanfic.rb" />
@@ -159,6 +118,9 @@
         <option value="$PROJECT_DIR$/app/views/read_fanfics/_rating.html.erb" />
         <option value="$PROJECT_DIR$/app/views/read_fanfics/_fanfics.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css.scss" />
+        <option value="$PROJECT_DIR$/app/views/read_chapters/show.html.erb" />
+        <option value="$PROJECT_DIR$/app/controllers/read_chapters_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
       </list>
     </option>
   </component>
@@ -229,13 +191,34 @@
               <item name="Funfix" type="b2602c69:ProjectViewProjectNode" />
               <item name="Funfix" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Funfix" type="b2602c69:ProjectViewProjectNode" />
               <item name="Funfix" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Funfix" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Funfix" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="comments" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Funfix" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Funfix" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="layouts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Funfix" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Funfix" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="read_chapters" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Funfix" type="b2602c69:ProjectViewProjectNode" />
@@ -347,12 +330,12 @@
       <workItem from="1518689502821" duration="10759000" />
       <workItem from="1518869695302" duration="9506000" />
       <workItem from="1518973541899" duration="9945000" />
-      <workItem from="1519035217791" duration="9110000" />
+      <workItem from="1519035217791" duration="10119000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="258420000" />
+    <option name="totallyTimeSpent" value="259429000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-15" y="27" width="1299" height="743" extended-state="6" />
@@ -389,13 +372,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/models/ability.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="21" lean-forward="false" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/initializers/application_controller_renderer.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -515,13 +491,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/read_chapters_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="39" lean-forward="false" selection-start-line="14" selection-start-column="39" selection-end-line="14" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/fanfics_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="850">
@@ -540,13 +509,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/read_chapters/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="38" column="96" lean-forward="false" selection-start-line="38" selection-start-column="2" selection-end-line="38" selection-end-column="96" />
         </state>
       </provider>
     </entry>
@@ -644,14 +606,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="30" column="81" lean-forward="false" selection-start-line="30" selection-start-column="68" selection-end-line="30" selection-end-column="81" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -708,16 +662,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/read_fanfics/_rating.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="21" lean-forward="false" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
-          <folding>
-            <element signature="n#style#0;n#i#1;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/read_fanfics_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -734,10 +678,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/comments/_comment_form.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="199" column="0" lean-forward="false" selection-start-line="199" selection-start-column="0" selection-end-line="199" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/read_fanfics/_rating.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="21" lean-forward="false" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
+          <folding>
+            <element signature="n#style#0;n#i#1;n#div#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/fanfic.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
           <caret line="3" column="31" lean-forward="false" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="42" column="60" lean-forward="false" selection-start-line="42" selection-start-column="60" selection-end-line="42" selection-end-column="60" />
           <folding />
         </state>
       </provider>
@@ -750,10 +728,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css.scss">
+    <entry file="file://$PROJECT_DIR$/app/controllers/read_chapters_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="214" column="13" lean-forward="false" selection-start-line="214" selection-start-column="13" selection-end-line="214" selection-end-column="13" />
+        <state relative-caret-position="126">
+          <caret line="7" column="87" lean-forward="false" selection-start-line="7" selection-start-column="87" selection-end-line="7" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/read_chapters/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="702">
+          <caret line="39" column="98" lean-forward="false" selection-start-line="39" selection-start-column="98" selection-end-line="39" selection-end-column="98" />
           <folding />
         </state>
       </provider>

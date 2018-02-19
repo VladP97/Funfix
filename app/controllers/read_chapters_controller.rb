@@ -4,7 +4,9 @@ class ReadChaptersController < ReadFanficsController
     @fanfic = Fanfic.find(params[:read_fanfic_id])
     @chapters = @fanfic.chapters
     show_average_rating(Rating.where(chapter_id: params[:id]))
-    show_user_rating(Rating.where(user_id: current_user.id, chapter_id: params[:id]))
+    if current_user
+      show_user_rating(Rating.where(user_id: current_user.id, chapter_id: params[:id]))
+    end
     @comment = Comment.new
   end
 

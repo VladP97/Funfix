@@ -36,7 +36,9 @@
   <div>User rating: <%= @user_rating %></div>
 </div>
 <div class="comments">
-  <%= render partial: 'comments/comment_form', locals: { fanfic: @fanfic, comment: @comment } %>
+  <% if current_user %>
+    <%= render partial: 'comments/comment_form', locals: { fanfic: @fanfic, comment: @comment } %>
+  <% end %>
   <% if @fanfic.comments.any? %>
     <div class="panel-body" id="comments">
       <%= render partial: 'comments/comment', collection: @fanfic.comments %>
