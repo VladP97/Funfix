@@ -1,3 +1,4 @@
+<%= javascript_include_tag "chapters_index" %>
 <% if current_user.admin_role %>
   <%= link_to "Create new chapter", new_person_fanfic_chapter_path(:id, params[:fanfic_id]), { class: "new-chapter" } %>
 <% else %>
@@ -14,8 +15,3 @@
     </div>
   </div>
 <% end %>
-<script type="text/javascript" charset="utf-8">
-    $(document).on("click", ".chapters", function() {
-        window.location = "http://localhost:3000" + $(this).data("href");
-    });
-</script>

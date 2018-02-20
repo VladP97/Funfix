@@ -1,3 +1,4 @@
+<%= javascript_include_tag "read_fanfics_show" %>
 <% @chapters.each do |chapter| %>
   <div data-href= "<%= read_fanfic_read_chapter_path(params[:id], chapter.id) %>" class="chapters jumbotron row">
     <img class="col" src="<%= chapter.image %>" alt="">
@@ -8,8 +9,3 @@
     </div>
   </div>
 <% end %>
-<script type="text/javascript" charset="utf-8">
-    $(document).on("click", ".chapters", function() {
-        window.location = "http://localhost:3000" + $(this).data("href");
-    });
-</script>

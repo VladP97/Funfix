@@ -25,3 +25,11 @@
 //= require_tree .
 //= stub read_chapters_show
 //= stub read_fanfics_index
+//= stub read_fanfics_show
+//= stub persons_show
+//= stub persons_index
+//= stub fanfics_new
+//= stub fanfics_edit
+//= stub chapters_show
+//= stub chapters_new
+//= stub chapters_index

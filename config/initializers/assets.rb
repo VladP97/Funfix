@@ -10,6 +10,14 @@ Rails.application.config.assets.precompile += %w( jquery.cloudinary.js )
 Rails.application.config.assets.precompile += %w( search.js )
 Rails.application.config.assets.precompile += %w( read_chapters_show.js )
 Rails.application.config.assets.precompile += %w( read_fanfics_index.js )
+Rails.application.config.assets.precompile += %w( read_fanfics_show.js )
+Rails.application.config.assets.precompile += %w( persons_show.js )
+Rails.application.config.assets.precompile += %w( persons_index.js )
+Rails.application.config.assets.precompile += %w( fanfics_new.js )
+Rails.application.config.assets.precompile += %w( fanfics_edit.js )
+Rails.application.config.assets.precompile += %w( chapters_show.js )
+Rails.application.config.assets.precompile += %w( chapters_new.js )
+Rails.application.config.assets.precompile += %w( chapters_index.js )
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path
 

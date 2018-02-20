@@ -1,3 +1,4 @@
+<%= javascript_include_tag "persons_show" %>
 <% if current_user.admin_role %>
   <%= link_to "Create new fanfic", new_person_fanfic_path(params[:id]) %>
 <% else %>
@@ -44,15 +45,3 @@
     </tbody>
   </table>
 </div>
-
-<script>
-    $(document).on("click", "tbody > tr > td", function() {
-        console.log(this);
-        window.location = "http://localhost:3000" + $(this).data("href");
-    });
-    $(document).ready(function() {
-        $('.table-hover').DataTable({
-            responsive: true
-        });
-    } );
-</script>
