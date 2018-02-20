@@ -36,11 +36,12 @@
             url: '/read_fanfics',
             method: 'get',
             data: {
+                page: 1,
                 tags: tagsArray,
                 search: 'search_all'
             },
             success: function (response) {
-                $('#fanfics').html(response);
+                $('body').html(response)
             }
         });
     });
@@ -53,12 +54,14 @@
             url: '/read_fanfics',
             method: 'get',
             data: {
+                page: 1,
                 tags: tagsArray,
                 search: 'search_any'
             },
             success: function (response) {
-                $('#fanfics').html(response);
+                $('body').html(response)
             }
         });
     });
+
 </script>

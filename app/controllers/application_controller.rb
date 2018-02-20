@@ -14,7 +14,6 @@ class ApplicationController < ActionController::Base
       flash[:error] = "This account has been banned"
       root_path
     end
-    # p current_user
   end
 
   def configure_permitted_parameters
