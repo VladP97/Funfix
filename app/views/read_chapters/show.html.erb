@@ -1,4 +1,5 @@
 <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<%= javascript_include_tag 'read_chapters_show' %>
 <div class="chapter-navigation">
   <% @chapters.each_with_index  do |chapter, index| %>
     <% if chapter.id == params[:id].to_i %>
@@ -46,15 +47,5 @@
   <% end %>
 </div>
 <script>
-    $(document).on("click", ".rate", function() {
-        window.location = "http://localhost:3000" + $(this).data("href");
-    });
-    $('.rate').mouseenter(function () {
-        $(this).prevAll().find('svg').css({'color': '#1c1c1c'});
-        $(this).find('svg').css({'color': '#1c1c1c'})
-    });
-    $('.rate').mouseleave(function () {
-        $(this).prevAll().find('svg').css({'color': '#b4b4b4'});
-        $(this).find('svg').css({'color': '#b4b4b4'})
-    });
+
 </script>

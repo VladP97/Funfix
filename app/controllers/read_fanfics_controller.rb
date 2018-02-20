@@ -42,8 +42,9 @@ class ReadFanficsController < ApplicationController
   def search_by_criteria(criteria)
     unless criteria.nil?
       @fanfics = Fanfic.includes(:comments, :chapters).where("fanfics.title LIKE :criteria or description LIKE :criteria or genre LIKE :criteria or comment LIKE :criteria or chapters.title LIKE :criteria or text LIKE :criteria", criteria: "%#{criteria}%").references(:comments, :chapters).page(params[:page])
+    else
+      @fanfics = Fanfic.page(1)
     end
-    @fanfics ||= Fanfic.all
   end
 
   def generate_query(tags)

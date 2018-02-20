@@ -1,4 +1,5 @@
 <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<%= javascript_include_tag "read_fanfics_index" %>
 <% if flash[:error] %>
   <div class="alert alert-danger alert-dismissible fade show" role="alert">
     <%= flash[:error] %>
@@ -20,48 +21,3 @@
 <div id="fanfics">
   <%= render partial: 'read_fanfics/fanfics', locals: { fanfics: @fanfics } %>
 </div>
-<script>
-    $(document).on("click", "tbody > tr", function() {
-        window.location = "http://localhost:3000" + $(this).data("href");
-    });
-    $('.badge').click(function () {
-        $(this).toggleClass('badge-secondary badge-primary');
-    });
-    $('#tags-search-all').click(function () {
-        var tagsArray = [];
-        $('.badge-primary').each(function (index, elem) {
-            tagsArray.push(elem.textContent);
-        });
-        $.ajax({
-            url: '/read_fanfics',
-            method: 'get',
-            data: {
-                page: 1,
-                tags: tagsArray,
-                search: 'search_all'
-            },
-            success: function (response) {
-                $('body').html(response)
-            }
-        });
-    });
-    $('#tags-search-any').click(function () {
-        var tagsArray = [];
-        $('.badge-primary').each(function (index, elem) {
-            tagsArray.push(elem.textContent);
-        });
-        $.ajax({
-            url: '/read_fanfics',
-            method: 'get',
-            data: {
-                page: 1,
-                tags: tagsArray,
-                search: 'search_any'
-            },
-            success: function (response) {
-                $('body').html(response)
-            }
-        });
-    });
-
-</script>

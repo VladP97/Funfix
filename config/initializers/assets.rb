@@ -8,6 +8,8 @@ Rails.application.config.assets.precompile += %w( jquery.iframe-transport.js )
 Rails.application.config.assets.precompile += %w( jquery.fileupload.js )
 Rails.application.config.assets.precompile += %w( jquery.cloudinary.js )
 Rails.application.config.assets.precompile += %w( search.js )
+Rails.application.config.assets.precompile += %w( read_chapters_show.js )
+Rails.application.config.assets.precompile += %w( read_fanfics_index.js )
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path
 

@@ -23,3 +23,5 @@
 //= require markitup/sets/xbbcode/set
 //= require dropzone
 //= require_tree .
+//= stub read_chapters_show
+//= stub read_fanfics_index
