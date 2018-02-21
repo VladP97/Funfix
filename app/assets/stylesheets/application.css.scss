@@ -17,7 +17,7 @@
 
 .fanfic-header {
   text-align: center;
-  margin-bottom: 2%;
+  margin: 2% 0;
 }
 
 .table-image {
@@ -93,6 +93,7 @@
 
 .rate {
   display: inline;
+  cursor: pointer;
 }
 
 .likes {
@@ -215,4 +216,22 @@
   p {
     margin: 0;
   }
+}
+
+.btn {
+  background: transparent;
+  color: #404142
+}
+
+.current-user {
+  border: none;
+}
+
+.create-fanfic-btn {
+  margin: 5%;
+}
+
+.any-form {
+  width: 80%;
+  margin: 2% auto;
 }

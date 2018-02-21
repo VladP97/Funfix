@@ -1,0 +1,7 @@
+<% 5.times do |index| %>
+  <div rating="<%= index + 1 %>" chapter="<%= chapter %>" class="rate">
+    <i class="fas fa-star"></i>
+  </div>
+<% end %>
+<div>Average rating: <%= rating %></div>
+<div>User rating: <%= user_rating %></div>

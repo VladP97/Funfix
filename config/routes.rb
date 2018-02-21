@@ -10,9 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :read_fanfics do
-    resources :read_chapters do
-      resources :ratings
-    end
+    resources :read_chapters
   end
 
   resources :comments
@@ -20,6 +18,8 @@ Rails.application.routes.draw do
   resources :tags
 
   resources :searches
+
+  resources :ratings
 
   root to: "read_fanfics#index"
 end

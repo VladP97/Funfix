@@ -1,7 +1,4 @@
-$(document).ready(function () {
-    $(document).on("click", ".rate", function() {
-        window.location = "http://localhost:3000" + $(this).data("href");
-    });
+var animation = function () {
     $('.rate').mouseenter(function () {
         $(this).prevAll().find('svg').css({'color': '#1c1c1c'});
         $(this).find('svg').css({'color': '#1c1c1c'})
@@ -9,5 +6,23 @@ $(document).ready(function () {
     $('.rate').mouseleave(function () {
         $(this).prevAll().find('svg').css({'color': '#b4b4b4'});
         $(this).find('svg').css({'color': '#b4b4b4'})
+    });
+};
+$(document).ready(function () {
+    animation();
+
+    $(document).on("click", ".rate", function() {
+        $.ajax({
+            method: 'post',
+            url: '/ratings',
+            data: {
+                chapter: $(this).attr('chapter'),
+                rating: $(this).attr('rating')
+            },
+            success: function (response) {
+                $('.rating').html(response);
+                animation();
+            }
+        });
     });
 });

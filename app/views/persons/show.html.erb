@@ -1,12 +1,9 @@
 <%= javascript_include_tag "persons_show" %>
+
 <% if current_user.admin_role %>
   <%= link_to "Create new fanfic", new_person_fanfic_path(params[:id]) %>
 <% else %>
   <%= link_to "Create new fanfic", new_person_fanfic_path(current_user.id) %>
-<% end %>
-
-<% if can? :manage_users, User %>
-  <%= link_to "Show users", persons_path %>
 <% end %>
 
 <div class="table-block">
@@ -34,9 +31,14 @@
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Actions
             </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
               <%= link_to 'Edit', edit_person_fanfic_path(params[:id], fanfic.id), { class: 'dropdown-item' } %>
               <%= link_to 'Delete', person_fanfic_path(params[:id], fanfic.id), { method: "delete", class: 'dropdown-item' } %>
+              <% if current_user.admin_role %>
+                <%= link_to "Create new chapter", new_person_fanfic_chapter_path(params[:id], fanfic.id), { class: "new-chapter dropdown-item" } %>
+              <% else %>
+                <%= link_to "Create new chapter", new_person_fanfic_chapter_path(current_user.id, fanfic.id), { class: "new-chapter dropdown-item" } %>
+              <% end %>
             </div>
           </div>
         </td>

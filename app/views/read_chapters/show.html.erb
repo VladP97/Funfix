@@ -18,23 +18,7 @@
   </div>
 </div>
 <div class="rating">
-  <div data-href= "<%= new_read_fanfic_read_chapter_rating_path(params[:read_fanfic_id], params[:id], rating: 1) %>" class="rate">
-    <i class="fas fa-star"></i>
-  </div>
-  <div data-href= "<%= new_read_fanfic_read_chapter_rating_path(params[:read_fanfic_id], params[:id], rating: 2) %>" class="rate">
-    <i class="fas fa-star"></i>
-  </div>
-  <div data-href= "<%= new_read_fanfic_read_chapter_rating_path(params[:read_fanfic_id], params[:id], rating: 3) %>" class="rate">
-    <i class="fas fa-star"></i>
-  </div>
-  <div data-href= "<%= new_read_fanfic_read_chapter_rating_path(params[:read_fanfic_id], params[:id], rating: 4) %>" class="rate">
-    <i class="fas fa-star"></i>
-  </div>
-  <div data-href= "<%= new_read_fanfic_read_chapter_rating_path(params[:read_fanfic_id], params[:id], rating: 5) %>" class="rate">
-    <i class="fas fa-star"></i>
-  </div>
-  <div>Average rating: <%= @rating %></div>
-  <div>User rating: <%= @user_rating %></div>
+  <%= render partial: 'read_chapters/rating', locals: { rating: @rating, user_rating: @user_rating, chapter: params[:id] } %>
 </div>
 <div class="comments">
   <% if current_user %>

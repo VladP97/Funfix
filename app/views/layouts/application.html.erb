@@ -34,10 +34,19 @@
           </div>
         </li>
         <% if user_signed_in? %>
-          <li class="nav-item">
-            <span>Здравствуйте, <%= current_user.login %></span>
-            <%= link_to 'Личный кабинет', person_path(current_user.id), :method => :get, :class => "nav-link" %>
-            <%= link_to 'Выйти', destroy_user_session_path, :method => :delete, :class => "nav-link" %>
+          <li class="nav-item" style="margin: auto">
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle current-user" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Здравствуйте, <%= current_user.login %>
+              </button>
+              <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                <%= link_to 'Личный кабинет', person_path(current_user.id), :method => :get, :class => "dropdown-item" %>
+                <% if can? :manage_users, User %>
+                  <%= link_to "Show users", persons_path, { class: "dropdown-item" } %>
+                <% end %>
+                <%= link_to 'Выйти', destroy_user_session_path, :method => :delete, :class => "dropdown-item" %>
+              </div>
+            </div>
           </li>
         <% else %>
           <li class="nav-item" style="margin: auto 5% auto 0;">

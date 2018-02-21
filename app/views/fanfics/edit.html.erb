@@ -3,7 +3,7 @@
 <%= javascript_include_tag "fanfics_edit" %>
 <h1 class="fanfic-header">Edit fanfic</h1>
 
-<%= form_for @fanfic, url: {action: "update"} do |f| %>
+<%= form_for @fanfic, url: {action: "update"}, html: {class: "any-form"} do |f| %>
   <div class="form-group">
     <%= f.label :title %>
     <%= f.text_field :title, class: "form-control"%>

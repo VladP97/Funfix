@@ -1,14 +1,26 @@
 class RatingsController < ApplicationController
-  def new
-    if Rating.where(user_id: current_user.id, chapter_id: params[:read_chapter_id]).to_a == []
-      Rating.create(user_id: current_user.id,
-                    chapter_id: params[:read_chapter_id],
-                    rating: params[:rating])
+  def create
+    existing_rating = Rating.where(user_id: current_user.id, chapter_id: params[:chapter])
+    if existing_rating
+      existing_rating.update(rating: params[:rating].to_i)
     else
-      Rating.update(user_id: current_user.id,
-                    chapter_id: params[:read_chapter_id],
-                    rating: params[:rating])
+      Rating.create(user_id: current_user.id,
+                    chapter_id: params[:chapter],
+                    rating: params[:rating].to_i)
     end
-    redirect_to read_fanfic_read_chapter_path(params[:read_fanfic_id], params[:read_chapter_id])
+    show_average_rating(Rating.where(chapter_id: params[:chapter]))
+    render partial: 'read_chapters/rating', locals: { rating: @rating,
+                                                      user_rating: params[:rating],
+                                                      chapter: params[:chapter]}
+  end
+
+  private
+
+  def show_average_rating(ratings)
+    if ratings.any?
+      @rating = ratings.average(:rating)
+    else
+      @rating = "No one rate this post yet"
+    end
   end
 end
