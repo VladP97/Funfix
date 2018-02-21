@@ -5,9 +5,11 @@ class FanficsController < PersonsController
   end
 
   def create
+    unless current_user.admin_role
+      user_id = current_user.id
+    end
     new_fanfic_params = params[:fanfic]
-    new_fanfic_params.merge!(user_id: params[:person_id].to_s)
-    add_tags(params[:fanfic][:tags])
+    new_fanfic_params.merge!(user_id: user_id)
     add_fanfic(new_fanfic_params)
     redirect_to person_path(current_user.id)
   end
@@ -19,14 +21,18 @@ class FanficsController < PersonsController
 
   def update
     image_url = generate_image_url(params[:fanfic][:image])
-    Fanfic.update( params[:id],
-                    title: params[:fanfic][:title], description: params[:fanfic][:description],
-                    image: image_url)
+    if user_check(Fanfic.find(params[:id]))
+      Fanfic.update( params[:id],
+                     title: params[:fanfic][:title], description: params[:fanfic][:description],
+                     image: image_url)
+    end
     redirect_to person_path(current_user.id)
   end
 
   def destroy
-    Fanfics.find(params[:id]).destroy
+    if user_check(Fanfic.find(params[:id]))
+      Fanfics.find(params[:id]).destroy
+    end
     redirect_to person_path(current_user.id)
   end
   
@@ -52,11 +58,19 @@ class FanficsController < PersonsController
   end
 
   def add_fanfic(new_fanfic_params)
+    add_tags(params[:fanfic][:tags])
     Fanfic.create(
         title: new_fanfic_params[:title], description: new_fanfic_params[:description],
         image: 'http://res.cloudinary.com/dhpelms3i/image/upload/v1517841525/' + new_fanfic_params[:image],
         genre: new_fanfic_params[:genre],
         user_id: new_fanfic_params[:user_id],
         tags: new_fanfic_params[:tags]).save
+  end
+
+  def user_check(record)
+    if record.user_id != current_user.id && !current_user.admin_role
+      return false
+    end
+    true
   end
 end
