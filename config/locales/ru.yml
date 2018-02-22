@@ -1,4 +1,8 @@
 ru:
+  search:
+    field: "Поиск"
+  profile:
+    greetings: "Привет"
   link_text:
     my_profile: "Мой профиль"
     show_users: "Показать пользователей"
@@ -8,3 +12,13 @@ ru:
   tags_button:
     any: "Включают любой из тегов"
     all: "Включают все теги"
+  rating:
+    average: "Средний рейтинг:"
+    user: "Мой рейтинг:"
+  comment:
+    text_area: "Оставить комментарий:"
+    submit: "Отправить"
+  user:
+    localization: "Локализация"
+    russian: "Русский"
+    english: "Английский"

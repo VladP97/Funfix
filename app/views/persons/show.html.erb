@@ -1,6 +1,16 @@
 <%= javascript_include_tag "persons_show" %>
 <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
+<div class="dropdown local-button">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <%= t('user.localization') %>
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <%= link_to t('user.russian'), edit_person_localization_path(params[:id], localization: 'ru'), {class: "dropdown-item"} %>
+    <%= link_to t('user.english'), edit_person_localization_path(params[:id], localization: 'en'), {class: "dropdown-item"} %>
+  </div>
+</div>
+
 <div class="table-block">
   <table class="table table-hover table-bordered">
     <thead>

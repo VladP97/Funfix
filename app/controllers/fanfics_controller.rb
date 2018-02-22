@@ -1,17 +1,16 @@
 class FanficsController < PersonsController
+
+  before_action :check_user
+
   def new
     @genres = Genre.pluck(:name, :name)
     @fanfic = Fanfic.new
   end
 
   def create
-    unless current_user.admin_role
-      user_id = current_user.id
-    else
-      user_id = params[:person_id]
-    end
     new_fanfic_params = params[:fanfic]
-    new_fanfic_params.merge!(user_id: user_id)
+    new_fanfic_params.merge!(user_id: params[:person_id].to_s)
+    add_tags(params[:fanfic][:tags])
     add_fanfic(new_fanfic_params)
     redirect_to person_path(current_user.id)
   end
@@ -22,18 +21,14 @@ class FanficsController < PersonsController
   end
 
   def update
-    if user_check(Fanfic.find(params[:id]))
-      Fanfic.update( params[:id],
-                     title: params[:fanfic][:title], description: params[:fanfic][:description],
-                     image: params[:fanfic][:image])
-    end
+    Fanfic.update( params[:id],
+                   title: params[:fanfic][:title], description: params[:fanfic][:description],
+                   image: image_url)
     redirect_to person_path(current_user.id)
   end
 
   def destroy
-    if user_check(Fanfic.find(params[:id]))
-      Fanfics.find(params[:id]).destroy
-    end
+    Fanfics.find(params[:id]).destroy
     redirect_to person_path(current_user.id)
   end
   
@@ -60,10 +55,9 @@ class FanficsController < PersonsController
         tags: new_fanfic_params[:tags]).save
   end
 
-  def user_check(record)
-    if record.user_id != current_user.id && !current_user.admin_role
-      return false
+  def check_user
+    if params[:person_id] != current_user.id && !current_user.admin_role
+      redirect_to root_path
     end
-    true
   end
 end

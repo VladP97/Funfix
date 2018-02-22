@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   mount ActionCable.server => '/cable'
 
   resources :persons do
+    resources :localizations
     resources :fanfics do
       resources :chapters
     end

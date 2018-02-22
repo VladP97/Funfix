@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180215104636) do
+ActiveRecord::Schema.define(version: 20180222140524) do
 
   create_table "chapters", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.integer  "fanfic_id"
@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(version: 20180215104636) do
     t.boolean  "admin_role",             default: false
     t.boolean  "user_role",              default: true
     t.boolean  "banned",                 default: false
+    t.string   "locale",                 default: "en"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree

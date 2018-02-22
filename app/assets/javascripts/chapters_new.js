@@ -108,6 +108,6 @@ $(document).ready(function () {
         formData.append('upload_preset', 'x9mghqma');
     });
     myDropzone.on('success', function (file, response) {
-        $('.image').attr('value', response.public_id);
+        $('.image').attr('value', response.url);
     });
 });

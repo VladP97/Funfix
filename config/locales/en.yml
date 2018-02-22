@@ -20,6 +20,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  search:
+    field: "Search"
+  profile:
+    greetings: "Hi"
   link_text:
     my_profile: "My profile"
     show_users: "Show users"
@@ -29,3 +33,13 @@ en:
   tags_button:
     any: "Include any tags"
     all: "Include all tags"
+  rating:
+    average: "Average rating:"
+    user: "My rating:"
+  comment:
+    text_area: "Leave comment:"
+    submit: "Sand"
+  user:
+    localization: "Localization"
+    russian: "Russian"
+    english: "English"

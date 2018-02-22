@@ -1,4 +1,7 @@
 class PersonsController < ApplicationController
+
+  before_action :check_user
+
   def index
     @users = User.all.to_a
   end
@@ -37,6 +40,12 @@ class PersonsController < ApplicationController
       else
         User.update(params[:id], banned: 1)
       end
+    end
+  end
+
+  def check_user
+    if params[:id] != current_user.id && !current_user.admin_role
+      redirect_to root_path
     end
   end
 end
