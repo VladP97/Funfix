@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
 
   before_action :banned?
 
+  before_action :set_locale
+
   protected
 
   def banned?
@@ -14,6 +16,10 @@ class ApplicationController < ActionController::Base
       flash[:error] = "This account has been banned"
       root_path
     end
+  end
+
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
   end
 
   def configure_permitted_parameters

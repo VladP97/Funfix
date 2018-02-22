@@ -4,7 +4,10 @@ $(document).ready(function() {
     });
 
     $(document).on("click", "tbody > tr > td", function() {
-        console.log(this);
         window.location = "http://localhost:3000" + $(this).data("href");
     });
+
+    $(document).on("click", "tfoot > tr > td", function () {
+        window.location = $(this).data("href");
+    })
 });

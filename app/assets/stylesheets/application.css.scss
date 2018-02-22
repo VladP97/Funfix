@@ -180,6 +180,8 @@
   border-radius: 12px;
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
   border: #747576 solid 2px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 
   img {
     width: 100%;
@@ -234,4 +236,19 @@
 .any-form {
   width: 80%;
   margin: 2% auto;
+}
+
+.login-form {
+  width: 40%;
+  margin: 2% auto;
+}
+
+tfoot {
+  tr:hover {
+    td {
+      background-color: #e9ecef;
+      color: #222324 !important;
+      cursor: pointer;
+    }
+  }
 }

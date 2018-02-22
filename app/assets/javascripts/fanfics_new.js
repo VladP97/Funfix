@@ -13,7 +13,6 @@ $(document).ready(function () {
             }
         });
         $(ms).on('selectionchange', function (e,m) {
-            console.log();
             $('#fanfic_tags').attr('value', m.getSelection().map(function (obj) { return obj.name }).join(' '));
         });
     });
@@ -30,6 +29,6 @@ $(document).ready(function () {
         formData.append('upload_preset', 'x9mghqma');
     });
     myDropzone.on('success', function (file, response) {
-        $('.image').attr('value', response.public_id);
+        $('.image').attr('value', response.url);
     });
 });

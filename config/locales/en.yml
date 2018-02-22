@@ -20,4 +20,12 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  link_text:
+    my_profile: "My profile"
+    show_users: "Show users"
+    logout: "Logout"
+    register: "Register"
+    login: "Login"
+  tags_button:
+    any: "Include any tags"
+    all: "Include all tags"
