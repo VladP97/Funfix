@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :persons do
     resources :localizations
+    resources :themes
     resources :fanfics do
       resources :chapters
     end

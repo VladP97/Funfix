@@ -1,0 +1,277 @@
+nav {
+  background-color: #f8f9fa;
+}
+
+body {
+  background: linear-gradient(
+                  rgba(255, 255, 255, 0.85),
+                  rgba(255, 255, 255, 0.85)),
+  url("the-fantasy-art-of-li-joshua-1.jpg") fixed no-repeat;
+  background-size: cover;
+}
+
+.new_fanfic {
+  width: 40%;
+  margin: auto;
+}
+
+.new_chapter {
+  width: 40%;
+  margin: auto;
+}
+
+.fanfic-header {
+  text-align: center;
+  margin: 2% 0;
+}
+
+.table-image {
+  width: 20%;
+}
+
+.chapters {
+  width: 80%;
+  margin: 0 auto 2%;
+  cursor: pointer;
+
+  div {
+    display: inline-block;
+
+    div {
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  img {
+    width: 50%;
+    height: 100%;
+  }
+}
+
+.read-chapter {
+  width: 80%;
+  margin: 2% auto;
+
+  img {
+    width: 50%;
+    height: 100%;
+    margin: auto;
+  }
+
+  div {
+    display: block;
+    width: 100%;
+  }
+}
+
+.dropzone {
+  margin-bottom: 2%;
+}
+
+.comment-field {
+  width: 80%;
+  margin: 2% auto;
+}
+
+.btn-info {
+  margin: 1% 0;
+  float: right;
+}
+
+.rating {
+  width: 80%;
+  margin: auto;
+  text-align: right;
+}
+
+.fa-star {
+  color: #b4b4b4;
+}
+
+.rate {
+  display: inline;
+  cursor: pointer;
+}
+
+.likes {
+  margin-left: 95%;
+}
+
+.comments {
+  width: 80%;
+  margin: auto;
+}
+
+.counts {
+  display: inline;
+}
+
+.edit-link {
+  margin: 2% 0 0 9%;
+}
+
+.new-chapter {
+  display: block;
+}
+
+.nav-link {
+  padding: 0 !important;
+}
+
+.mr-auto {
+  margin-left: auto !important;
+  margin-right: 0 !important;
+}
+
+.chapter-navigation {
+  margin-top: 2%;
+  text-align: center;
+
+  a {
+    color: #333333;
+    padding: 2px;
+  }
+
+  a:hover {
+    color: #333333;
+    text-decoration: none;
+  }
+}
+
+.current-chapter {
+  background-color: #333333;
+  color: #fff !important;
+}
+
+.table-block {
+  max-width: 95%;
+  margin: auto;
+}
+
+.tag-cloud {
+  width: 90%;
+  margin: 2% auto;
+}
+
+.badge {
+  cursor: pointer;
+}
+
+.search {
+  padding: 5%;
+}
+
+.search-input {
+  display: inline-block;
+  width: 65%;
+}
+
+.search-button {
+  //display: inline-block !important;
+}
+
+.fanfic-display {
+  width: 80%;
+  margin: 2% auto;
+  padding: 3%;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  border: #747576 solid 2px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+
+  img {
+    width: 100%;
+  }
+
+  a {
+    text-decoration: none;
+    color: #0b2121;
+  }
+
+  hr {
+    width: 100%;
+  }
+}
+
+.fanfic-display:hover {
+  box-shadow: 0 0 10px rgba(0,0,0,1);
+  background-color: #f4f5f6;
+
+  a {
+
+    div {
+
+      h2 {
+        text-decoration: underline #0c0c0c;
+      }
+    }
+  }
+}
+
+.fanfic-comments {
+  text-align: right;
+
+  p {
+    margin: 0;
+  }
+}
+
+.btn {
+  background: transparent;
+  color: #404142
+}
+
+.current-user {
+  border: none;
+}
+
+.create-fanfic-btn {
+  margin: 5%;
+}
+
+.any-form {
+  width: 80%;
+  margin: 2% auto;
+}
+
+.login-form {
+  width: 40%;
+  margin: 2% auto;
+}
+
+tfoot {
+  tr:hover {
+    td {
+      background-color: #e9ecef;
+      color: #222324 !important;
+      cursor: pointer;
+    }
+  }
+}
+
+.local-button {
+  display: inline;
+  text-align: right;
+}
+
+.user-setting {
+  text-align: right;
+  margin: 1%;
+}
+
+.table {
+  background-color: #ffffff;
+}
+
+table.dataTable tbody tr {
+  background-color: #ffffff;
+}

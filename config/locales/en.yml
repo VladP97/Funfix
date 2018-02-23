@@ -43,6 +43,9 @@ en:
     localization: "Localization"
     russian: "Russian"
     english: "English"
+    theme: "Theme"
+    light: "Light"
+    dark: "Dark"
   table:
     fanfics:
       image: "Image"

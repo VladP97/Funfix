@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   before_action :banned?
 
-  before_action :set_locale
+  before_action :set_locale_and_theme
 
   protected
 
@@ -18,11 +18,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def set_locale
+  def set_locale_and_theme
     if current_user
       I18n.locale = current_user.locale
+      @theme = current_user.theme
     else
       I18n.locale = I18n.default_locale
+      @theme = "light"
     end
   end
 

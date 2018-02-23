@@ -22,6 +22,9 @@ ru:
     localization: "Локализация"
     russian: "Русский"
     english: "Английский"
+    theme: "Тема"
+    light: "Светлая"
+    dark: "Темная"
   table:
     fanfics:
       image: "Картинка"

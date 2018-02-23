@@ -18,6 +18,8 @@ Rails.application.config.assets.precompile += %w( fanfics_edit.js )
 Rails.application.config.assets.precompile += %w( chapters_show.js )
 Rails.application.config.assets.precompile += %w( chapters_new.js )
 Rails.application.config.assets.precompile += %w( chapters_index.js )
+Rails.application.config.assets.precompile += %w( light.css )
+Rails.application.config.assets.precompile += %w( dark.css )
 # Add additional assets to the asset load path
 # Rails.application.config.assets.paths << Emoji.images_path
 
