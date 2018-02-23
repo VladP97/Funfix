@@ -43,3 +43,13 @@ en:
     localization: "Localization"
     russian: "Russian"
     english: "English"
+  table:
+    fanfics:
+      image: "Image"
+      title: "Title"
+      genre: "Genre"
+      description: "Description"
+      actions: "Actions"
+  fanfics:
+    edit: "Edit fanfic"
+    new: "Create new fanfic"

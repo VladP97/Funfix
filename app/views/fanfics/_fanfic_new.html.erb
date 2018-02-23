@@ -1,0 +1,28 @@
+<%= form_for fanfic, url: {action: "create"}, html: {class: "any-form"} do |f| %>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control"%>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :genre %>
+    <%= f.select :genre, { Genres: @genres }, {}, { class: "custom-select" } %>
+  </div>
+
+  <div id="magicsuggest"></div>
+
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: "form-control"%>
+  </div>
+
+  <div id="dropzone-area" class="dropzone">
+
+  </div>
+
+  <%= f.hidden_field :image %>
+
+  <%= f.hidden_field :tags %>
+
+  <%= f.submit "Create", class: "btn btn-primary" %>
+<% end %>

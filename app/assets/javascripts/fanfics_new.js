@@ -12,10 +12,15 @@ $(document).ready(function () {
                 ms.setData(response.tags);
             }
         });
+        var tags = $('#fanfic_tags').val();
+        if(tags) {
+            ms.setValue($('#fanfic_tags').val().split(' '));
+        }
         $(ms).on('selectionchange', function (e,m) {
             $('#fanfic_tags').attr('value', m.getSelection().map(function (obj) { return obj.name }).join(' '));
         });
     });
+
 
     var myDropzone = new Dropzone(document.getElementById('dropzone-area'), {
         uploadMultiple: false,

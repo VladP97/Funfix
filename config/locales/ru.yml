@@ -22,3 +22,13 @@ ru:
     localization: "Локализация"
     russian: "Русский"
     english: "Английский"
+  table:
+    fanfics:
+      image: "Картинка"
+      title: "Название"
+      genre: "Жанр"
+      description: "Описание"
+      actions: "Действия"
+  fanfics:
+    edit: "Редактирование фанфика"
+    new: "Создание нового фанфика"
