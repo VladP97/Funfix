@@ -9,14 +9,7 @@
   </div>
 <% end %>
 <div class="tag-cloud">
-  <% @tags.each do |tag| %>
-    <span class="badge badge-secondary"><%= tag.tag %></span>
-  <% end %>
-  <br>
-  <div class="btn-group" role="group" aria-label="Basic example">
-    <button type="button" class="btn btn-secondary" id="tags-search-any"><%= t('tags_button.any') %></button>
-    <button type="button" class="btn btn-secondary" id="tags-search-all"><%= t('tags_button.all') %></button>
-  </div>
+  <%= render partial: 'read_fanfics/tags', locals: { tags: @tags, is_hidden: true } %>
 </div>
 <div id="fanfics">
   <%= render partial: 'read_fanfics/fanfics', locals: { fanfics: @fanfics } %>

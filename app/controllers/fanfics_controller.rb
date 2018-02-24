@@ -31,7 +31,15 @@ class FanficsController < PersonsController
     Fanfics.find(params[:id]).destroy
     redirect_to person_path(current_user.id)
   end
-  
+
+  protected
+
+  def check_user
+    if params[:person_id] != current_user.id && !current_user.admin_role
+      redirect_to root_path
+    end
+  end
+
   private
 
   def add_tags(tags)
@@ -53,11 +61,5 @@ class FanficsController < PersonsController
         genre: new_fanfic_params[:genre],
         user_id: new_fanfic_params[:user_id],
         tags: new_fanfic_params[:tags]).save
-  end
-
-  def check_user
-    if params[:person_id] != current_user.id && !current_user.admin_role
-      redirect_to root_path
-    end
   end
 end

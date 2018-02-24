@@ -25,4 +25,8 @@ $(document).ready(function () {
             }
         });
     });
+
+    $('.comments > form').bind('ajax:complete', function() {
+        $('.comments > form > textarea').val('');
+    });
 });

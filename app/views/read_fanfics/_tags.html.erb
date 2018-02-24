@@ -1,0 +1,13 @@
+<% tags.each do |tag| %>
+  <span class="badge badge-secondary"><%= tag.tag %></span>
+<% end %>
+<br>
+<% if is_hidden %>
+  <p id="show-tags" class="show-tags">Show all</p>
+<% else %>
+  <p id="hide-tags" class="show-tags">Hide tags</p>
+<% end %>
+<div class="btn-group" role="group" aria-label="Basic example">
+  <button type="button" class="btn btn-secondary" id="tags-search-any"><%= t('tags_button.any') %></button>
+  <button type="button" class="btn btn-secondary" id="tags-search-all"><%= t('tags_button.all') %></button>
+</div>

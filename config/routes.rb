@@ -17,7 +17,12 @@ Rails.application.routes.draw do
 
   resources :comments
 
-  resources :tags
+  resources :tags do
+    collection do
+      get :get_all
+      get :hide_all
+    end
+  end
 
   resources :searches
 

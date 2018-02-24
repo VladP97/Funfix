@@ -24,7 +24,15 @@ class PersonsController < ApplicationController
     User.destroy(params[:id])
     redirect_to controller: "persons", action: "index"
   end
-  
+
+  protected
+
+  def check_user
+    if params[:id] != current_user.id && !current_user.admin_role
+      redirect_to root_path
+    end
+  end
+
   private
 
   def set_admin(params)
@@ -40,12 +48,6 @@ class PersonsController < ApplicationController
       else
         User.update(params[:id], banned: 1)
       end
-    end
-  end
-
-  def check_user
-    if params[:id] != current_user.id && !current_user.admin_role
-      redirect_to root_path
     end
   end
 end

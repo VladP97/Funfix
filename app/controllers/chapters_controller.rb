@@ -31,7 +31,7 @@ class ChaptersController < FanficsController
     redirect_to person_path(current_user.id)
   end
 
-  private
+  protected
 
   def check_user
     if Fanfic.find(params[:fanfic_id]).user_id != current_user.id && !current_user.admin_role

@@ -2,7 +2,7 @@
 <% @chapters.each do |chapter| %>
   <%= link_to 'Edit', edit_person_fanfic_chapter_path(params[:person_id], params[:fanfic_id], chapter.id), { class: "col-md-12 edit-link" } %>
   <div data-href= "<%= read_fanfic_read_chapter_path(params[:fanfic_id], chapter.id) %>" class="chapters jumbotron row">
-    <img class="col" src="<%= chapter.image %>" alt="">
+    <img src="<%= chapter.image %>" alt="">
     <div class="col">
       <h2><%= chapter.title %></h2>
       <hr>

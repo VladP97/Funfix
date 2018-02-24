@@ -10,7 +10,7 @@ class ReadFanficsController < ApplicationController
       else
         @fanfics = Fanfic.page(params[:page])
     end
-    @tags = Tag.order(:count).limit(20)
+    @tags = Tag.order(count: :desc).limit(10)
   end
 
   def show
@@ -50,7 +50,7 @@ class ReadFanficsController < ApplicationController
   def generate_query(tags)
     query = "tags LIKE '%#{tags[0]}%'"
     tags.drop(1).each_index do |index|
-      query += " OR tags LIKE '%#{tags[index]}%'"
+      query += " OR tags LIKE '%#{tags[index + 1]}%'"
     end
     query
   end

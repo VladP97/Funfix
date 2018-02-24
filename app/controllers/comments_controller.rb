@@ -9,11 +9,13 @@ class CommentsController < ActionController::Base
 
   def update
     if !Like.where(user_id: current_user.id, comment_id: params[:id]).any?
-      comment = Comment.find(params[:id])
-      comment.likes += 1
-      comment.save
-      Like.create comment_id: params[:id], user_id: current_user.id
-      update_comments(comment)
+      if current_user
+        comment = Comment.find(params[:id])
+        comment.likes += 1
+        comment.save
+        Like.create comment_id: params[:id], user_id: current_user.id
+        update_comments(comment)
+      end
     end
   end
 

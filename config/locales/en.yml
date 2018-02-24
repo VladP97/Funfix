@@ -38,7 +38,7 @@ en:
     user: "My rating:"
   comment:
     text_area: "Leave comment:"
-    submit: "Sand"
+    submit: "Send"
   user:
     localization: "Localization"
     russian: "Russian"
