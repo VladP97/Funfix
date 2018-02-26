@@ -60,10 +60,6 @@ $(document).ready(function () {
             }, {
                 separator: '---------------'
             }, {
-                name: 'Picture',
-                key: 'P',
-                replaceWith: '![[![Alternative text]!]]([![Url:!:http://]!] "[![Title]!]")'
-            }, {
                 name: 'Link',
                 key: 'L',
                 openWith: '[',
@@ -80,10 +76,6 @@ $(document).ready(function () {
                 closeWith: '(!(`)!)'
             }, {
                 separator: '---------------'
-            }, {
-                name: 'Preview',
-                call: 'preview',
-                className: "preview"
             }
         ]
     };

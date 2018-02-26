@@ -10,21 +10,39 @@
   </thead>
   <tbody>
   <% @users.each do |user| %>
-    <tr style="cursor: pointer;" id="user">
-      <td data-href= "<%= person_path(user.id) %>"><%= user.id %></td>
-      <td data-href= "<%= person_path(user.id) %>"><%= user.email %></td>
-      <td data-href= "<%= person_path(user.id) %>"><%= user.login %></td>
-      <td>
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Action
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <%= link_to 'Set admin', person_path(user.id, admin_role: 1, user_role: 0), { class: 'dropdown-item', method: :patch } %>
-          <%= link_to 'Ban/Unban', person_path(user.id, ban_unban: 1), { class: 'dropdown-item', method: :patch } %>
-          <%= link_to 'Delete', person_path(user.id), { class: 'dropdown-item', method: :delete } %>
-        </div>
-      </td>
-    </tr>
+    <% if user.banned %>
+      <tr style="cursor: pointer; background-color: #ff9085" id="user">
+        <td data-href= "<%= person_path(user.id) %>"><%= user.id %></td>
+        <td data-href= "<%= person_path(user.id) %>"><%= user.email %></td>
+        <td data-href= "<%= person_path(user.id) %>"><%= user.login %></td>
+        <td>
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Action
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <%= link_to 'Set admin', person_path(user.id, admin_role: 1, user_role: 0), { class: 'dropdown-item', method: :patch } %>
+            <%= link_to 'Ban/Unban', person_path(user.id, ban_unban: 1), { class: 'dropdown-item', method: :patch } %>
+            <%= link_to 'Delete', person_path(user.id), { class: 'dropdown-item', method: :delete } %>
+          </div>
+        </td>
+      </tr>
+    <% else %>
+      <tr style="cursor: pointer;" id="user">
+        <td data-href= "<%= person_path(user.id) %>"><%= user.id %></td>
+        <td data-href= "<%= person_path(user.id) %>"><%= user.email %></td>
+        <td data-href= "<%= person_path(user.id) %>"><%= user.login %></td>
+        <td>
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Action
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <%= link_to 'Set admin', person_path(user.id, admin_role: 1, user_role: 0), { class: 'dropdown-item', method: :patch } %>
+            <%= link_to 'Ban/Unban', person_path(user.id, ban_unban: 1), { class: 'dropdown-item', method: :patch } %>
+            <%= link_to 'Delete', person_path(user.id), { class: 'dropdown-item', method: :delete } %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
   <% end %>
   </tbody>
 </table>

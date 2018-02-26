@@ -12,5 +12,5 @@
   <%= render partial: 'read_fanfics/tags', locals: { tags: @tags, is_hidden: true } %>
 </div>
 <div id="fanfics">
-  <%= render partial: 'read_fanfics/fanfics', locals: { fanfics: @fanfics } %>
+  <%= render partial: 'read_fanfics/fanfics', locals: { fanfics: @fanfics, ratings: @ratings, comments: @comments } %>
 </div>

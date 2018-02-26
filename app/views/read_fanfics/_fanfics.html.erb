@@ -1,7 +1,7 @@
 <% fanfics.each_with_index do |fanfic, index| %>
     <div class="fanfic-display">
       <%= link_to read_fanfic_path(fanfic.id), {class: "row"} do %>
-        <%= render partial: 'read_fanfics/rating', locals: { fanfic: fanfic } %>
+        <%= render partial: 'read_fanfics/rating', locals: { fanfic: fanfic, average: ratings[index] } %>
         <div class="col-md-4">
           <img src="<%= fanfic.image %>" alt="" >
         </div>
@@ -18,7 +18,7 @@
         </div>
         <hr>
         <div class="col-md-12 fanfic-comments">
-          <p><i class="fas fa-comments"></i> <%= fanfic.comments.count %></p>
+          <p><i class="fas fa-comments"></i> <%= comments[index] %></p>
         </div>
       <% end %>
     </div>

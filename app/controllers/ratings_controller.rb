@@ -1,7 +1,7 @@
 class RatingsController < ApplicationController
   def create
     existing_rating = Rating.where(user_id: current_user.id, chapter_id: params[:chapter])
-    if existing_rating
+    if existing_rating.any?
       existing_rating.update(rating: params[:rating].to_i)
     else
       Rating.create(user_id: current_user.id,

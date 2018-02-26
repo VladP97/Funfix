@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   has_many :comments
   has_many :fanfics
-  devise :database_authenticatable, :registerable, :confirmable,
+
+  validates :login, uniqueness: true
+
+  devise :database_authenticatable, :registerable, :confirmable, :async,
          :recoverable, :rememberable, :trackable, :validatable
 end
