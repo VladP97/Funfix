@@ -33,6 +33,8 @@ en:
   tags_button:
     any: "Include any tags"
     all: "Include all tags"
+    show_all: "Show all"
+    hide_tags: "Hide tags"
   rating:
     average: "Average rating:"
     user: "My rating:"
@@ -56,3 +58,4 @@ en:
   fanfics:
     edit: "Edit fanfic"
     new: "Create new fanfic"
+    empty: "This fanfic don't have any chapters yet "

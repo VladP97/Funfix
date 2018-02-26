@@ -316,3 +316,30 @@ form {
 .comment-send {
   margin: 1% 0;
 }
+
+.pagination {
+  nav {
+    background-color: transparent;
+  }
+}
+
+.empty-fanfic {
+  margin-top: 17%;
+  text-align: center;
+  font-size: 18pt;
+  color: #ffffff;
+}
+
+.show-tags {
+  text-align: center;
+  font-size: 16pt;
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+.show-tags:hover {
+  text-decoration-style: solid;
+}

@@ -23,7 +23,7 @@ class FanficsController < PersonsController
   def update
     Fanfic.update( params[:id],
                    title: params[:fanfic][:title], description: params[:fanfic][:description],
-                   image: image_url)
+                   image: params[:fanfic][:image])
     redirect_to person_path(current_user.id)
   end
 

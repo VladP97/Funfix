@@ -1,11 +1,17 @@
 <%= javascript_include_tag "read_fanfics_show" %>
-<% @chapters.each do |chapter| %>
-  <div data-href= "<%= read_fanfic_read_chapter_path(params[:id], chapter.id) %>" class="chapters jumbotron row">
-    <img src="<%= chapter.image %>" alt="">
-    <div class="col">
-      <h2><%= chapter.title %></h2>
-      <hr>
-      <div> <%= markdown(chapter.text) %></div>
+<% if @chapters.any? %>
+  <% @chapters.each do |chapter| %>
+    <div data-href= "<%= read_fanfic_read_chapter_path(params[:id], chapter.id) %>" class="chapters jumbotron row">
+      <img src="<%= chapter.image %>" alt="">
+      <div class="col">
+        <h2><%= chapter.title %></h2>
+        <hr>
+        <div> <%= markdown(chapter.text) %></div>
+      </div>
     </div>
-  </div>
+  <% end %>
+<% else %>
+  <p class="empty-fanfic">
+    <%= t('fanfics.empty') %>¯\_(ツ)_/¯
+  </p>
 <% end %>

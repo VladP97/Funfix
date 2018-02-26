@@ -3,9 +3,9 @@
 <% end %>
 <br>
 <% if is_hidden %>
-  <p id="show-tags" class="show-tags">Show all</p>
+  <p id="show-tags" class="show-tags"><%= t('tags_button.show_all') %></p>
 <% else %>
-  <p id="hide-tags" class="show-tags">Hide tags</p>
+  <p id="hide-tags" class="show-tags"><%= t('tags_button.hide_tags') %></p>
 <% end %>
 <div class="btn-group" role="group" aria-label="Basic example">
   <button type="button" class="btn btn-secondary" id="tags-search-any"><%= t('tags_button.any') %></button>

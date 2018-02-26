@@ -34,6 +34,6 @@ $(document).ready(function () {
         formData.append('upload_preset', 'x9mghqma');
     });
     myDropzone.on('success', function (file, response) {
-        $('.image').attr('value', response.url);
+        $('#fanfic_image').attr('value', response.url);
     });
 });
